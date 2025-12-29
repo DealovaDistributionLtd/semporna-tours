@@ -5,52 +5,113 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>仙本那行程价格 / Semporna Pricing</title>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;margin:0;padding:0;background:#f6fbfc;color:#0e2a33;}
-table{width:100%;border-collapse:collapse;margin:40px auto;max-width:1100px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 16px 34px rgba(0,0,0,.08);}
+:root{
+  --main:#00c2d1;
+  --bg:#f6fbfc;
+  --card:#fff;
+  --radius:16px;
+  --shadow:0 16px 34px rgba(0,0,0,.08);
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;
+  margin:0;padding:0;background:var(--bg);color:#0e2a33;
+}
+.language-toggle{
+  position:fixed;top:20px;right:20px;background:var(--main);color:#fff;
+  padding:10px 14px;border-radius:14px;cursor:pointer;z-index:999;font-weight:700;
+}
+.hero{position:relative;min-height:40vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;margin-bottom:40px;}
+.hero img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:-1;}
+.hero-content{max-width:900px;padding:20px;}
+.hero-content h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:10px;}
+.hero-content p{font-size:1.2rem;opacity:.95;}
+table{
+  width:100%;border-collapse:collapse;margin:0 auto 40px auto;max-width:1100px;
+  background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+}
 th,td{padding:14px;text-align:left;border-bottom:1px solid #ddd;}
-th{background:#00c2d1;color:#fff;}
+th{background:var(--main);color:#fff;}
 tr:hover{background:rgba(0,188,212,0.08);cursor:pointer;}
-h1{text-align:center;margin-top:40px;}
-a{color:#00c2d1;text-decoration:none;font-weight:700;}
+.category{background:rgba(0,188,212,0.2);font-weight:700;text-align:center;}
+.note{text-align:center;margin-bottom:40px;font-size:0.95rem;opacity:0.85;}
+a.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:10px 20px;border-radius:24px;text-decoration:none;transition:.3s;margin-top:20px;}
+a.btn:hover{background:#0096a6;}
+.floating-wechat{position:fixed;bottom:20px;right:20px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:70px;height:70px;border-radius:16px;box-shadow:var(--shadow);}
+.hidden{display:none;}
 </style>
 </head>
 <body>
 
-<h1>行程价格 / Tour Packages & Prices</h1>
+<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
+
+<section class="hero">
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna">
+  <div class="hero-content">
+    <h1 class="cn">仙本那行程价格一览</h1>
+    <h1 class="en hidden">Semporna Tour Prices</h1>
+    <p class="cn">点击价格即可添加微信咨询，获取更多行程信息和出海时间</p>
+    <p class="en hidden">Click a price to add WeChat and get itinerary details and trip times</p>
+  </div>
+</section>
+
 <table>
   <thead>
     <tr>
-      <th>行程 / 套餐</th>
-      <th>Package / Trip</th>
-      <th>价格 (人民币)</th>
-      <th>Price (CNY)</th>
+      <th class="cn">行程 / 套餐</th>
+      <th class="en hidden">Package / Trip</th>
+      <th>价格 / Price (CNY)</th>
     </tr>
   </thead>
   <tbody>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 2 潜水 DSD (Bum Bum Island)</td><td>1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,014.48</td><td>￥1,014.48</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 3 潜水 DSD 日游</td><td>1N / 3 Dive DSD Day Trip</td><td>￥1,187.89</td><td>￥1,187.89</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 3 DSD + 浮潜 & 徒步 (Tun Sakaran MP)</td><td>1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,621.43</td><td>￥1,621.43</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 6 娱乐潜水</td><td>1N / 6 Fun Dive</td><td>￥1,555.53</td><td>￥1,555.53</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / 9 娱乐潜水</td><td>2N / 9 Fun Dive</td><td>￥2,502.38</td><td>￥2,502.38</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / 9 娱乐潜水 (1 天 Sipadan)</td><td>2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,610.50</td><td>￥3,610.50</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / 12 娱乐潜水</td><td>3N / 12 Fun Dive</td><td>￥3,449.22</td><td>￥3,449.22</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / 12 娱乐潜水 (1 天 Sipadan)</td><td>3N / 12 Fun Dive (1 Day Sipadan)</td><td>￥4,557.34</td><td>￥4,557.34</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水</td><td>4N / 15 Fun Dive</td><td>￥4,396.07</td><td>￥4,396.07</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水 (1 天 Sipadan)</td><td>4N / 15 Fun Dive (1 Day Sipadan)</td><td>￥5,504.19</td><td>￥5,504.19</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水 (2 天 Sipadan + 3 其他)</td><td>4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</td><td>￥6,612.31</td><td>￥6,612.31</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水</td><td>5N / 18 Fun Dive</td><td>￥5,342.91</td><td>￥5,342.91</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水 (1 天 Sipadan + 4 其他)</td><td>5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</td><td>￥6,451.03</td><td>￥6,451.03</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水 (2 天 Sipadan + 4 其他)</td><td>5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</td><td>￥7,559.15</td><td>￥7,559.15</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 初级课程</td><td>2N / PADI Open Water Course</td><td>￥3,173.49</td><td>￥3,173.49</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / PADI 初级 + 3 娱乐潜水</td><td>3N / PADI OWC + 3 Fun Dive</td><td>￥4,120.34</td><td>￥4,120.34</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 高级 + 3 娱乐潜水 (8 潜)</td><td>2N / PADI Advanced + 3 Fun Dive (8 Dives)</td><td>￥3,313.96</td><td>￥3,313.96</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 高级 + Sipadan (9 潜)</td><td>2N / PADI Advanced + Sipadan (9 Dives)</td><td>￥4,560.81</td><td>￥4,560.81</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / PADI 救援 + EFR</td><td>3N / PADI Rescue + EFR</td><td>￥4,205.31</td><td>￥4,205.31</td></tr>
-    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>6D/5N 初级 + 高级课程</td><td>6D/5N OW + AOW</td><td>￥6,487.45</td><td>￥6,487.45</td></tr>
+
+    <!-- Island Hopping / DSD -->
+    <tr class="category"><td colspan="3">跳岛游 / DSD Packages</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 2 潜水 DSD (Bum Bum Island)</td><td>1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,014.48</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 3 潜水 DSD 日游</td><td>1N / 3 Dive DSD Day Trip</td><td>￥1,187.89</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 3 DSD + 浮潜 & 徒步 (Tun Sakaran MP)</td><td>1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,621.43</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>1N / 6 娱乐潜水</td><td>1N / 6 Fun Dive</td><td>￥1,555.53</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / 9 娱乐潜水</td><td>2N / 9 Fun Dive</td><td>￥2,502.38</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / 9 娱乐潜水 (1 天 Sipadan)</td><td>2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,610.50</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / 12 娱乐潜水</td><td>3N / 12 Fun Dive</td><td>￥3,449.22</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / 12 娱乐潜水 (1 天 Sipadan)</td><td>3N / 12 Fun Dive (1 Day Sipadan)</td><td>￥4,557.34</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水</td><td>4N / 15 Fun Dive</td><td>￥4,396.07</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水 (1 天 Sipadan)</td><td>4N / 15 Fun Dive (1 Day Sipadan)</td><td>￥5,504.19</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>4N / 15 娱乐潜水 (2 天 Sipadan + 3 其他)</td><td>4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</td><td>￥6,612.31</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水</td><td>5N / 18 Fun Dive</td><td>￥5,342.91</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水 (1 天 Sipadan + 4 其他)</td><td>5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</td><td>￥6,451.03</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>5N / 18 娱乐潜水 (2 天 Sipadan + 4 其他)</td><td>5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</td><td>￥7,559.15</td></tr>
+
+    <!-- PADI Courses -->
+    <tr class="category"><td colspan="3">PADI 潜水课程 / PADI Courses</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 初级课程</td><td>2N / PADI Open Water Course</td><td>￥3,173.49</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / PADI 初级 + 3 娱乐潜水</td><td>3N / PADI OWC + 3 Fun Dive</td><td>￥4,120.34</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 高级 + 3 娱乐潜水 (8 潜)</td><td>2N / PADI Advanced + 3 Fun Dive (8 Dives)</td><td>￥3,313.96</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>2N / PADI 高级 + Sipadan (9 潜)</td><td>2N / PADI Advanced + Sipadan (9 Dives)</td><td>￥4,560.81</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>3N / PADI 救援 + EFR</td><td>3N / PADI Rescue + EFR</td><td>￥4,205.31</td></tr>
+    <tr onclick="window.location='weixin://dl/chat?Deso_89'"><td>6D/5N 初级 + 高级课程</td><td>6D/5N OW + AOW</td><td>￥6,487.45</td></tr>
+
   </tbody>
 </table>
 
-<p style="text-align:center;margin:40px;"><a href="index.html">返回首页 / Back to Home</a></p>
+<p class="note cn">备注：行程包含餐饮和住宿。<br>Meals and accommodation included.</p>
+
+<div style="text-align:center;">
+  <a href="index.html" class="btn">返回首页 / Back to Home</a>
+</div>
+
+<div class="floating-wechat" onclick="window.location='weixin://dl/chat?Deso_89'">
+  <img src="wechat-qr.jpg" alt="WeChat QR Code">
+</div>
+
+<script>
+const toggle = document.getElementById('langToggle');
+toggle.addEventListener('click',()=>{
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+});
+</script>
 
 </body>
 </html>
