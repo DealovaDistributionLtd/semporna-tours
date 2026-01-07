@@ -66,16 +66,81 @@ h2{text-align:center;margin-bottom:36px}
 
 <header>
   <nav>
-  <b>仙本那 · 海岛之旅 / Semporna Tours</b>
-  <div>
-    <a onclick="scrollToSection('services')">项目 / Services</a>
-    <a onclick="scrollToSection('gallery')">实拍 / Gallery</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a onclick="openWechat()">微信 / WeChat</a>
-  </div>
-</nav>
+    <b>仙本那 · 海岛之旅 / Semporna Tours</b>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">首页 / Home</a>
+      <a href="accommodation.html">住宿 / Accommodation</a>
+      <a href="pricing.html">行程价格 / Pricing</a>
+      <a onclick="openWechat()">微信 / WeChat</a>
+    </div>
+    <div class="nav-toggle" id="navToggle">☰</div>
+  </nav>
 </header>
+
+<style>
+/* Nav styles */
+nav {
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
+nav b{color:var(--main);font-size:1.2rem;cursor:pointer}
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+.nav-links a{
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+.nav-links a:hover{color:#0096a6;}
+.nav-toggle{
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  user-select:none;
+}
+
+/* Mobile responsive */
+@media screen and (max-width:768px){
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    border-radius:0 0 16px 16px;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    z-index:99;
+  }
+  .nav-links.active{transform:translateX(0);}
+  .nav-toggle{display:block;}
+}
+</style>
+
+<script>
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', ()=>{
+  navLinks.classList.toggle('active');
+});
+
+// Optional: close nav when link clicked
+document.querySelectorAll('.nav-links a').forEach(link=>{
+  link.addEventListener('click', ()=>{ navLinks.classList.remove('active'); });
+});
+</script>
+
 
 <section class="hero">
   <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Island">
