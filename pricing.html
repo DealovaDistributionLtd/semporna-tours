@@ -31,6 +31,9 @@
         .surcharge-box { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px dashed var(--main); margin-bottom: 40px; }
         .surcharge-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
         .btn-pricing { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; margin-top: 20px; }
+        
+        .back-nav { margin-bottom: 20px; display: inline-block; color: var(--main); font-weight: 700; cursor: pointer; }
+        .currency-note { font-size: 0.85rem; color: #666; margin-bottom: 20px; display: block; text-align: center;}
     </style>
 </head>
 <body>
@@ -78,13 +81,13 @@
 
 <section>
     <div class="price-tabs">
-        <button class="tab-btn active" onclick="switchTab('diving')">
+        <button id="tab-diving-btn" class="tab-btn active" onclick="switchTab('diving')">
             <span class="cn">潜水行程</span><span class="en hidden">Diving Tours</span>
         </button>
-        <button class="tab-btn" onclick="switchTab('hopping')">
+        <button id="tab-hopping-btn" class="tab-btn" onclick="switchTab('hopping')">
             <span class="cn">跳岛游</span><span class="en hidden">Island Hopping</span>
         </button>
-        <button class="tab-btn" onclick="switchTab('transport')">
+        <button id="tab-transport-btn" class="tab-btn" onclick="switchTab('transport')">
             <span class="cn">接送</span><span class="en hidden">Transport</span>
         </button>
     </div>
@@ -109,64 +112,57 @@
         <h2 class="cn">Fun Dive 娱乐潜水 (持证)</h2>
         <h2 class="en hidden">Fun Dive (Certified)</h2>
         <table>
-            <thead>
-                <tr>
-                    <th><span class="cn">项目</span><span class="en hidden">Package</span></th>
-                    <th><span class="cn">价格</span><span class="en hidden">Price</span></th>
-                </tr>
-            </thead>
+            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Package</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">1天 / 6次娱乐潜水</span><span class="en hidden">1 Day / 6 Fun Dives</span></td><td>￥1,543.90</td></tr>
                 <tr><td><span class="cn">2天 / 9次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">2 Days / 9 Fun Dives (1 Day Sipadan)</span></td><td>￥3,583.50</td></tr>
-                <tr><td><span class="cn">3天 / 12次娱乐潜水</span><span class="en hidden">3 Days / 12 Fun Dives</span></td><td>￥3,423.43</td></tr>
-                <tr><td><span class="cn">3天 / 12次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">3 Days / 12 Fun Dives (1 Day Sipadan)</span></td><td>￥4,523.27</td></tr>
-                <tr><td><span class="cn">4天 / 15次娱乐潜水</span><span class="en hidden">4 Days / 15 Fun Dives</span></td><td>￥4,363.20</td></tr>
-                <tr><td><span class="cn">4天 / 15次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">4 Days / 15 Fun Dives (1 Day Sipadan)</span></td><td>￥5,463.03</td></tr>
-                <tr><td><span class="cn">5天 / 18次娱乐潜水</span><span class="en hidden">5 Days / 18 Fun Dives</span></td><td>￥5,302.96</td></tr>
-                <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹+4次其他)</span><span class="en hidden">5 Days / 18 Fun Dives (2 Days Sipadan)</span></td><td>￥7,502.64</td></tr>
-            </tbody>
-        </table>
-
-        <h2 class="cn">PADI 潜水课程</h2>
-        <h2 class="en hidden">PADI Diving Courses</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th><span class="cn">课程</span><span class="en hidden">Course</span></th>
-                    <th><span class="cn">价格</span><span class="en hidden">Price</span></th>
-                </tr>
-            </thead>
-            <tbody onclick="openWechat()">
-                <tr><td><span class="cn">2天 / PADI OW 初级潜水员课程</span><span class="en hidden">2 Days / PADI Open Water Course</span></td><td>￥3,149.76</td></tr>
-                <tr><td><span class="cn">3天 / PADI OW初级 + 3次娱乐潜水</span><span class="en hidden">3 Days / PADI OW + 3 Fun Dives</span></td><td>￥4,089.53</td></tr>
-                <tr><td><span class="cn">2天 / PADI AOW进阶 + 3次娱乐潜水</span><span class="en hidden">2 Days / PADI Advanced + 3 Fun Dives</span></td><td>￥3,289.18</td></tr>
-                <tr><td><span class="cn">6天5夜 OW + AOW 连报优惠</span><span class="en hidden">6D5N OW + AOW Combo Deal</span></td><td>￥6,438.95</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹)</span><span class="en hidden">5 Days / 18 Fun Dives (2 Days Sipadan)</span></td><td>￥7,502.64</td></tr>
             </tbody>
         </table>
     </div>
 
     <div id="hopping" class="price-content">
-        <h2 class="cn">跳岛游路线报价</h2>
-        <h2 class="en hidden">Island Hopping Rates</h2>
-        <div style="background:#fff; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center;">
-            <p class="cn">查看详细的 A/B/C 路线人民币报价表：</p>
-            <p class="en hidden">View detailed Route A/B/C RMB price lists:</p>
-            <a href="island-hopping.html" target="_blank" class="btn-pricing">
-                <span class="cn">在新标签页打开详情</span><span class="en hidden">Open Details in New Tab</span>
+        <div class="back-nav" onclick="switchTab('diving')">← <span class="cn">返回潜水价格</span><span class="en hidden">Back to Diving</span></div>
+        
+        <h2 class="cn">跳岛游路线报价 (RMB)</h2>
+        <h2 class="en hidden">Island Hopping Rates (RMB)</h2>
+        <span class="currency-note cn">* 价格已按 1 MYR ≈ 1.72 CNY 汇率转换</span>
+        <span class="currency-note en hidden">* Converted based on 1 MYR ≈ 1.72 CNY</span>
+
+        <h3 class="cn">路线 A — TSMP 敦沙卡兰 (国际游客)</h3>
+        <h3 class="en hidden">Route A — TSMP Route (International)</h3>
+        <table>
+            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 + 徒步 (成人)</span><span class="en hidden">Snorkeling + Hiking (Adult)</span></td><td>¥ 370</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 1,041</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 1,256</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="cn">路线 B & C — 马布/马达京 (国际游客)</h3>
+        <h3 class="en hidden">Route B & C — Mabul/Mataking (International)</h3>
+        <table>
+            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">路线 B/C 浮潜</span><span class="en hidden">Route B/C Snorkeling</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">路线 B/C 深潜体验 (DSD)</span><span class="en hidden">Route B/C Scuba (DSD)</span></td><td>¥ 593</td></tr>
+            </tbody>
+        </table>
+        
+        <div style="text-align: center;">
+            <a href="island-hopping.html" class="btn-pricing" target="_blank">
+                <span class="cn">查看更多路线详情</span><span class="en hidden">View More Route Details</span>
             </a>
         </div>
     </div>
 
     <div id="transport" class="price-content">
+        <div class="back-nav" onclick="switchTab('diving')">← <span class="cn">返回潜水价格</span><span class="en hidden">Back to Diving</span></div>
         <h2 class="cn">斗湖机场接送服务</h2>
         <h2 class="en hidden">Airport Transfers</h2>
         <table>
-            <thead>
-                <tr>
-                    <th><span class="cn">服务项目</span><span class="en hidden">Service Item</span></th>
-                    <th><span class="cn">价格</span><span class="en hidden">Price</span></th>
-                </tr>
-            </thead>
+            <thead><tr><th><span class="cn">服务项目</span><span class="en hidden">Service Item</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">机场拼车 (单程/每人)</span><span class="en hidden">Shared Shuttle (One Way/pax)</span></td><td>RM 25</td></tr>
                 <tr><td><span class="cn">私家包车 (4人座轿车)</span><span class="en hidden">Private Car (4 Seats)</span></td><td>RM 100</td></tr>
@@ -181,10 +177,6 @@
         <div class="surcharge-item">
             <span><strong class="cn">7-9月 旺季附加费</strong><strong class="en hidden">July-Sept Peak Season</strong></span>
             <span>RM 40 <small class="cn">/人/晚</small><small class="en hidden">/pax/night</small></span>
-        </div>
-        <div class="surcharge-item">
-            <span><strong class="cn">额外续住 (每晚)</strong><strong class="en hidden">Extra Night Stay</strong></span>
-            <span>RM 195 <small class="cn">/人</small><small class="en hidden">/pax</small></span>
         </div>
         <div class="surcharge-item">
             <span><strong class="cn">单人房附加费</strong><strong class="en hidden">Single Room Surcharge</strong></span>
@@ -219,8 +211,12 @@
     function switchTab(tabId) {
         document.querySelectorAll('.price-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
+        
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+        // Dynamic button activation
+        if(tabId === 'diving') document.getElementById('tab-diving-btn').classList.add('active');
+        if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
+        if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
     }
 </script>
 </body>
