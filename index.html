@@ -71,7 +71,7 @@ h2{text-align:center;margin-bottom:36px}
       <a onclick="scrollToSection('services')">项目 / Services</a>
       <a onclick="scrollToSection('gallery')">实拍 / Gallery</a>
       <a href="pricing.html">价格 / Pricing</a>
-      <a onclick="scrollToSection('wechat')">微信 / WeChat</a>
+      <a onclick="openWechat()">微信 / WeChat</a>
     </div>
   </nav>
 </header>
@@ -138,19 +138,7 @@ h2{text-align:center;margin-bottom:36px}
   <p class="en hidden">No gimmicks · No rushed itinerary · Truly enjoy the sea</p>
   <div style="margin-top:24px;">
     <a href="pricing.html" class="btn">查看价格 / See Pricing</a>
-    <a href="#wechat" class="btn">立即添加微信 / Add WeChat</a>
-  </div>
-</section>
-
-<section id="wechat">
-  <h2 class="cn">添加微信 · 咨询行程</h2>
-  <h2 class="en hidden">Add WeChat · Inquire Tours</h2>
-  <div class="wechat-box">
-    <p class="cn">扫码添加微信，获取行程建议 / 套餐 / 出海时间</p>
-    <p class="en hidden">Scan to add WeChat for itinerary advice / packages / trip times</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR Code">
-    <strong>教练 Deso_89</strong>
-    <p style="opacity:.75">仙本那 · 当地向导 / Semporna · Local Guide</p>
+    <a onclick="openWechat()" class="btn">立即添加微信 / Add WeChat</a>
   </div>
 </section>
 
@@ -186,15 +174,13 @@ function scrollToSection(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-// WeChat popup logic
+// WeChat popup
 const popup = document.getElementById('wechatPopup');
 popup.style.display='none';
-
 function openWechat(){
   popup.style.display='flex';
   document.body.style.overflow='hidden';
 }
-
 function closeWechat(){
   popup.style.display='none';
   document.body.style.overflow='';
