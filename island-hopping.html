@@ -1,88 +1,207 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PAGE TITLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>跳岛游路线 | Island Hopping Routes - Semporna Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-Specific Styles */
+        section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        h2 { margin: 40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px; font-size: 1.5rem; }
+        
+        /* Category Filter Buttons */
+        .route-filter { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .filter-btn { 
+            background: #fff; border: 2px solid var(--main); color: var(--main); 
+            padding: 10px 25px; border-radius: 24px; cursor: pointer; font-weight: 700; transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--main); color: #fff; }
 
-<link rel="stylesheet" href="css/style.css">
+        table {
+            width: 100%; border-collapse: collapse; margin-bottom: 30px;
+            background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+        }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: var(--main); color: #fff; font-weight: 600; }
+        tr:hover { background: rgba(0, 188, 212, 0.03); cursor: pointer; }
+
+        .route-content { display: none; animation: fadeIn 0.5s ease; }
+        .route-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .currency-note { font-size: 0.85rem; color: #666; text-align: center; margin-top: -10px; margin-bottom: 30px; }
+    </style>
 </head>
 <body>
 
 <header>
-  <nav class="nav-container">
-    <b class="logo">Semporna Tours</b>
+    <nav class="nav-container">
+        <b class="logo">Semporna Tours</b>
+        <div class="nav-links">
+            <a href="index.html">首页 / Home</a>
+            <a href="pricing.html">价格 / Pricing</a>
+            <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="island-hopping.html" class="active">跳岛 / Island Hopping</a>
+            <a href="gallery.html">相册 / Gallery</a>
+            <a href="reviews.html">评价 / Reviews</a>
+            <a href="about.html">关于 / About</a>
+            <a href="contact.html">联系 / Contact</a>
+            <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+    </nav>
 
-    <!-- Desktop Menu -->
-    <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="gallery.html">相册 / Gallery</a>
-      <a href="reviews.html">评价 / Reviews</a>
-      <a href="about.html">关于我们 / About</a>
-      <a href="faq.html">常见问题 / FAQ</a>
-      <a href="contact.html">联系 / Contact</a>
-      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    <div class="mobile-menu hidden" id="mobileMenu">
+        <a href="index.html">首页 / Home</a>
+        <a href="pricing.html">价格 / Pricing</a>
+        <a href="accommodation.html">住宿 / Accommodation</a>
+        <a href="island-hopping.html" class="active">跳岛 / Island Hopping</a>
+        <a href="gallery.html">相册 / Gallery</a>
+        <a href="reviews.html">评价 / Reviews</a>
+        <a href="about.html">关于 / About</a>
+        <a href="contact.html">联系 / Contact</a>
+        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
-    <button class="hamburger" id="hamburger">&#9776;</button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html">关于我们 / About</a>
-    <a href="faq.html">常见问题 / FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-  </div>
 </header>
 
-
-<!-- HERO -->
 <section class="hero">
-  <img src="https://images.unsplash.com/1600788886242-5c96c9c55e5b?auto=format&fit=crop&w=1400&q=80">
-  <div class="hero-content">
-    <h1 class="cn">中文标题</h1>
-    <h1 class="en hidden">English Title</h1>
-    <p class="cn">中文描述</p>
-    <p class="en hidden">English description</p>
-  </div>
+    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200" alt="Island Hopping Semporna">
+    <div class="hero-content">
+        <h1 class="cn">经典跳岛游路线</h1>
+        <h1 class="en hidden">Classic Island Hopping Routes</h1>
+        <p class="cn">透明价格 · RMB 结算 · 优质小团服务</p>
+        <p class="en hidden">Transparent Pricing · RMB Payment · Premium Small Groups</p>
+    </div>
 </section>
 
-<section class="grid">
-  <div class="card">
-    <h3 class="cn">敦沙卡兰海洋公园</h3>
-    <h3 class="en hidden">Tun Sakaran Marine Park</h3>
-    <p class="cn">珍珠岛、军舰岛、清澈海水与白沙滩</p>
-    <p class="en hidden">Bohey Dulang, Mantabuan & crystal-clear waters</p>
-  </div>
+<section>
+    <div class="route-filter">
+        <button class="filter-btn active" onclick="showRoute('routeA', this)">路线 A (TSMP)</button>
+        <button class="filter-btn" onclick="showRoute('routeB', this)">路线 B (马布岛)</button>
+        <button class="filter-btn" onclick="showRoute('routeC', this)">路线 C (马达京)</button>
+    </div>
 
-  <div class="card">
-    <h3 class="cn">跳岛游包含</h3>
-    <h3 class="en hidden">Included</h3>
-    <p class="cn">船、救生衣、午餐、导游</p>
-    <p class="en hidden">Boat, lunch, life jacket & guide</p>
-  </div>
+    <p class="currency-note">
+        <span class="cn">* 价格已按 1 MYR ≈ 1.72 CNY 汇率转换为人民币 (RMB)</span>
+        <span class="en hidden">* Prices converted to RMB based on 1 MYR ≈ 1.72 CNY</span>
+    </p>
+
+    <div id="routeA" class="route-content active">
+        <h2 class="cn">路线 A — TSMP 敦沙卡兰 (本地/持有工作准证)</h2>
+        <h2 class="en hidden">Route A — TSMP Route (Local/Permit)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 + 徒步 (成人 11+)</span><span class="en hidden">Snorkeling + Hiking (Adult)</span></td><td>¥ 267</td></tr>
+                <tr><td><span class="cn">浮潜 + 徒步 (儿童 3-10)</span><span class="en hidden">Snorkeling + Hiking (Child)</span></td><td>¥ 129</td></tr>
+                <tr><td><span class="cn">浮潜 不徒步 (成人 11+)</span><span class="en hidden">Snorkeling No Hiking (Adult)</span></td><td>¥ 198</td></tr>
+                <tr><td><span class="cn">浮潜 不徒步 (儿童 3-10)</span><span class="en hidden">Snorkeling No Hiking (Child)</span></td><td>¥ 95</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 826</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 1,041</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="cn">路线 A — TSMP 敦沙卡兰 (国际游客)</h2>
+        <h2 class="en hidden">Route A — TSMP Route (International)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 + 徒步 (成人 11+)</span><span class="en hidden">Snorkeling + Hiking (Adult)</span></td><td>¥ 370</td></tr>
+                <tr><td><span class="cn">浮潜 + 徒步 (儿童 1-10)</span><span class="en hidden">Snorkeling + Hiking (Child)</span></td><td>¥ 224</td></tr>
+                <tr><td><span class="cn">浮潜 不徒步 (成人 11+)</span><span class="en hidden">Snorkeling No Hiking (Adult)</span></td><td>¥ 249</td></tr>
+                <tr><td><span class="cn">浮潜 不徒步 (儿童 1-10)</span><span class="en hidden">Snorkeling No Hiking (Child)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 1,041</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 1,256</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="routeB" class="route-content">
+        <h2 class="cn">路线 B — 马布岛 & 卡帕莱 (本地/持有工作准证)</h2>
+        <h2 class="en hidden">Route B — Mabul & Kapalai (Local/Permit)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 3-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 95</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 592</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 697</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="cn">路线 B — 马布岛 & 卡帕莱 (国际游客)</h2>
+        <h2 class="en hidden">Route B — Mabul & Kapalai (International)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 1-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 138</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 593</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 697</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="routeC" class="route-content">
+        <h2 class="cn">路线 C — 马达京 / 邦邦岛 / 汀巴汀巴 (本地/持有工作准证)</h2>
+        <h2 class="en hidden">Route C — Mataking / Pom-Pom / Timba-Timba (Local/Permit)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 3-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 95</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 592</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 697</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="cn">路线 C — 马达京 / 邦邦岛 / 汀巴汀巴 (国际游客)</h2>
+        <h2 class="en hidden">Route C — Mataking / Pom-Pom / Timba-Timba (International)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th class="en hidden">Activity</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 1-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 138</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 593</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 697</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align:center;">
+        <button onclick="openWechat()" class="btn">立即微信咨询详情 / Add WeChat</button>
+    </div>
 </section>
 
-<section class="grid">
-  <div class="card">
-    <h3 class="cn">内容标题</h3>
-    <h3 class="en hidden">Content Title</h3>
-    <p class="cn">内容说明</p>
-    <p class="en hidden">Content description</p>
-  </div>
-</section>
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+    <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
 
-<script src="js/main.js"></script>
+<div class="floating-wechat" onclick="openWechat()">
+    <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+    <div class="wechat-box">
+        <p class="cn">扫码添加微信获取详细行程建议</p>
+        <p class="en hidden">Scan WeChat for Detailed Itinerary Advice</p>
+        <img src="wechat-qr.jpg" alt="WeChat QR">
+        <br><strong>教练 Deso_89</strong><br>
+        <button onclick="closeWechat()">关闭 / Close</button>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+    // Route Filter logic - Following your preference for category filtering
+    function showRoute(routeId, btn) {
+        document.querySelectorAll('.route-content').forEach(el => el.classList.remove('active'));
+        document.getElementById(routeId).classList.add('active');
+        
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+</script>
 </body>
 </html>
