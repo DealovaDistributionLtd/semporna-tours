@@ -17,7 +17,7 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Micros
 a{text-decoration:none;color:inherit}
 img{width:100%;display:block}
 
-/* Header/Nav - Identical to Index */
+/* Header/Nav */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 .nav-container{
   max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
@@ -72,7 +72,7 @@ tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
 .btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;margin-top:20px;}
 .btn:hover{background:#0096a6;transform:scale(1.05);}
 
-/* Floating WeChat & Popup - Identical to Index */
+/* Floating WeChat & Popup */
 .floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
 .floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
 .wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
@@ -133,44 +133,80 @@ tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
   <h2 class="cn">DSD 深潜体验 (无证)</h2>
   <h2 class="en hidden">DSD Scuba Experience (No License)</h2>
   <table>
-    <thead><tr><th>项目 / Package</th><th>价格 / Price</th></tr></thead>
+    <thead>
+      <tr>
+        <th class="cn">项目</th>
+        <th class="en hidden">Package</th>
+        <th>价格 / Price</th>
+      </tr>
+    </thead>
     <tbody onclick="openWechat()">
-      <tr><td>1N / 2 Dive DSD (Bum Bum Island)</td><td>￥1,006.89</td></tr>
-      <tr><td>1N / 3 Dive DSD Day Trip</td><td>￥1,179.01</td></tr>
-      <tr><td>1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</td><td>￥1,609.31</td></tr>
+      <tr>
+        <td>
+          <span class="cn">1天/2次深潜 (Bum Bum岛)</span>
+          <span class="en hidden">1N / 2 Dive DSD (Bum Bum Island)</span>
+        </td>
+        <td>￥1,006.89</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="cn">1天/3次深潜日游</span>
+          <span class="en hidden">1N / 3 Dive DSD Day Trip</span>
+        </td>
+        <td>￥1,179.01</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="cn">1天/3次深潜 + 浮潜与徒步 (敦沙卡兰)</span>
+          <span class="en hidden">1N / 3 DSD + Snorkel & Hike (Tun Sakaran MP)</span>
+        </td>
+        <td>￥1,609.31</td>
+      </tr>
     </tbody>
   </table>
 
   <h2 class="cn">Fun Dive 娱乐潜水 (持证)</h2>
   <h2 class="en hidden">Fun Dive (Certified Divers)</h2>
   <table>
-    <thead><tr><th>项目 / Package</th><th>价格 / Price</th></tr></thead>
+    <thead>
+      <tr>
+        <th class="cn">项目</th>
+        <th class="en hidden">Package</th>
+        <th>价格 / Price</th>
+      </tr>
+    </thead>
     <tbody onclick="openWechat()">
-      <tr><td>1N / 6 Fun Dive</td><td>￥1,543.90</td></tr>
-      <tr><td>2N / 9 Fun Dive</td><td>￥2,483.67</td></tr>
-      <tr><td>2N / 9 Fun Dive (1 Day Sipadan)</td><td>￥3,583.50</td></tr>
-      <tr><td>3N / 12 Fun Dive</td><td>￥3,423.43</td></tr>
-      <tr><td>3N / 12 Fun Dive (1 Day Sipadan)</td><td>￥4,523.27</td></tr>
-      <tr><td>4N / 15 Fun Dive</td><td>￥4,363.20</td></tr>
-      <tr><td>4N / 15 Fun Dive (1 Day Sipadan)</td><td>￥5,463.03</td></tr>
-      <tr><td>4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</td><td>￥6,562.87</td></tr>
-      <tr><td>5N / 18 Fun Dive</td><td>￥5,302.96</td></tr>
-      <tr><td>5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</td><td>￥6,402.80</td></tr>
-      <tr><td>5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</td><td>￥7,502.64</td></tr>
+      <tr><td><span class="cn">1天 / 6次娱乐潜水</span><span class="en hidden">1N / 6 Fun Dive</span></td><td>￥1,543.90</td></tr>
+      <tr><td><span class="cn">2天 / 9次娱乐潜水</span><span class="en hidden">2N / 9 Fun Dive</span></td><td>￥2,483.67</td></tr>
+      <tr><td><span class="cn">2天 / 9次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">2N / 9 Fun Dive (1 Day Sipadan)</span></td><td>￥3,583.50</td></tr>
+      <tr><td><span class="cn">3天 / 12次娱乐潜水</span><span class="en hidden">3N / 12 Fun Dive</span></td><td>￥3,423.43</td></tr>
+      <tr><td><span class="cn">3天 / 12次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">3N / 12 Fun Dive (1 Day Sipadan)</span></td><td>￥4,523.27</td></tr>
+      <tr><td><span class="cn">4天 / 15次娱乐潜水</span><span class="en hidden">4N / 15 Fun Dive</span></td><td>￥4,363.20</td></tr>
+      <tr><td><span class="cn">4天 / 15次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">4N / 15 Fun Dive (1 Day Sipadan)</span></td><td>￥5,463.03</td></tr>
+      <tr><td><span class="cn">4天 / 15次娱乐潜水 (2天诗巴丹 + 3次其他)</span><span class="en hidden">4N / 15 Fun Dive (2 Day Sipadan + 3 Other)</span></td><td>￥6,562.87</td></tr>
+      <tr><td><span class="cn">5天 / 18次娱乐潜水</span><span class="en hidden">5N / 18 Fun Dive</span></td><td>￥5,302.96</td></tr>
+      <tr><td><span class="cn">5天 / 18次娱乐潜水 (1天诗巴丹 + 4次其他)</span><span class="en hidden">5N / 18 Fun Dive (1 Day Sipadan + 4 Other)</span></td><td>￥6,402.80</td></tr>
+      <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹 + 4次其他)</span><span class="en hidden">5N / 18 Fun Dive (2 Day Sipadan + 4 Other)</span></td><td>￥7,502.64</td></tr>
     </tbody>
   </table>
 
   <h2 class="cn">PADI 潜水课程</h2>
   <h2 class="en hidden">PADI Professional Courses</h2>
   <table>
-    <thead><tr><th>项目 / Course</th><th>价格 / Price</th></tr></thead>
+    <thead>
+      <tr>
+        <th class="cn">课程</th>
+        <th class="en hidden">Course</th>
+        <th>价格 / Price</th>
+      </tr>
+    </thead>
     <tbody onclick="openWechat()">
-      <tr><td>2N / PADI Open Water Course (OW)</td><td>￥3,149.76</td></tr>
-      <tr><td>3N / PADI OWC + 3 Fun Dive</td><td>￥4,089.53</td></tr>
-      <tr><td>2N / PADI Advanced + 3 Fun Dive (8 Dives)</td><td>￥3,289.18</td></tr>
-      <tr><td>2N / PADI Advanced + Sipadan (9 Dives)</td><td>￥4,526.71</td></tr>
-      <tr><td>3N / PADI Rescue + EFR</td><td>￥4,173.87</td></tr>
-      <tr><td>6D/5N OW + AOW 连报</td><td>￥6,438.95</td></tr>
+      <tr><td><span class="cn">2天 / PADI OW 初级潜水员课程</span><span class="en hidden">2N / PADI Open Water Course (OW)</span></td><td>￥3,149.76</td></tr>
+      <tr><td><span class="cn">3天 / PADI OW初级 + 3次娱乐潜水</span><span class="en hidden">3N / PADI OWC + 3 Fun Dive</span></td><td>￥4,089.53</td></tr>
+      <tr><td><span class="cn">2天 / PADI AOW进阶 + 3次娱乐潜水 (共8潜)</span><span class="en hidden">2N / PADI Advanced + 3 Fun Dive (8 Dives)</span></td><td>￥3,289.18</td></tr>
+      <tr><td><span class="cn">2天 / PADI AOW进阶 + 诗巴丹 (共9潜)</span><span class="en hidden">2N / PADI Advanced + Sipadan (9 Dives)</span></td><td>￥4,526.71</td></tr>
+      <tr><td><span class="cn">3天 / PADI 救援潜水员 + EFR紧急第一反应</span><span class="en hidden">3N / PADI Rescue + EFR</span></td><td>￥4,173.87</td></tr>
+      <tr><td><span class="cn">6天5夜 OW + AOW 连报优惠</span><span class="en hidden">6D/5N OW + AOW Combo</span></td><td>￥6,438.95</td></tr>
     </tbody>
   </table>
 
@@ -186,7 +222,7 @@ tr:hover{background:rgba(0,188,212,0.03);cursor:pointer;}
       <span>RM 195 <small>/ person</small></span>
     </div>
     <div class="surcharge-item">
-      <span><strong class="cn">非潜水员价格 (双人房)</strong><strong class="en hidden">Non-diver Rate (dbl/twin share)</strong></span>
+      <span><strong class="cn">非潜水员价格 (双人房/拼房)</strong><strong class="en hidden">Non-diver Rate (dbl/twin share)</strong></span>
       <span>RM 195 <small>/ night</small></span>
     </div>
     <div class="surcharge-item">
@@ -224,7 +260,7 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// Language switch
+// Language switch logic
 function toggleLang() {
   document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
   document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
