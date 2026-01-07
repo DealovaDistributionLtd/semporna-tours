@@ -3,16 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>常见问题 / FAQ</title>
+<title>常见问题 / FAQ | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.faq-item{margin-bottom:12px;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.faq-item button{width:100%;background:var(--main);color:#fff;padding:12px 16px;border:none;border-radius:16px;cursor:pointer;text-align:left;font-weight:700;}
+.faq-item button:hover{background:#0096a6;}
+.faq-answer{padding:12px 16px;display:none;color:#0e2a33;}
+</style>
 </head>
 <body>
 
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -24,12 +28,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -39,38 +39,65 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
+<section>
+  <h2 class="cn">常见问题</h2>
+  <h2 class="en hidden">Frequently Asked Questions</h2>
 
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-  <div class="hero-content">
-    <h1 class="cn">常见问题</h1>
-    <h1 class="en hidden">FAQ</h1>
+  <div class="faq-item">
+    <button class="cn">是否提供浮潜装备？</button>
+    <button class="en hidden">Is snorkel gear provided?</button>
+    <div class="faq-answer">
+      <p class="cn">所有跳岛套餐都提供浮潜装备，包括面镜、呼吸管和救生衣。</p>
+      <p class="en hidden">All island hopping packages include snorkel gear, mask, snorkel & life jacket.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="cn">适合初学者潜水吗？</button>
+    <button class="en hidden">Is it suitable for beginner divers?</button>
+    <div class="faq-answer">
+      <p class="cn">是的，我们提供体验潜水课程和持证教练指导。</p>
+      <p class="en hidden">Yes, we provide discover dives and guidance from certified instructors.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="cn">如何预订？</button>
+    <button class="en hidden">How to book?</button>
+    <div class="faq-answer">
+      <p class="cn">请通过微信联系教练或使用网站联系表单预订。</p>
+      <p class="en hidden">Contact the instructor via WeChat or use the website contact form to book.</p>
+    </div>
   </div>
 </section>
 
-<section class="faq">
-  <details>
-    <summary class="cn">需要潜水证吗？</summary>
-    <summary class="en hidden">Do I need a license?</summary>
-    <p class="cn">体验潜水不需要</p>
-    <p class="en hidden">No license needed for discover dive</p>
-  </details>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
 
-  <details>
-    <summary class="cn">适合初学者吗？</summary>
-    <summary class="en hidden">Beginner friendly?</summary>
-    <p class="cn">完全适合</p>
-    <p class="en hidden">Yes, fully beginner friendly</p>
-  </details>
-</section>
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
 
-<!-- WECHAT -->
-
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      let answer = item.querySelector('.faq-answer');
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+});
+</script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
