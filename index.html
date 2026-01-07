@@ -12,6 +12,24 @@
         .card:hover { transform: translateY(-10px); }
         .card-btn { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; border: none; cursor: pointer; margin-top: 15px; text-decoration: none; }
         
+        /* Redbook Promo Section Styles */
+        .xhs-promo { 
+            max-width: 1100px; margin: 40px auto; padding: 40px; 
+            background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);
+            display: flex; align-items: center; gap: 40px;
+        }
+        .xhs-content { flex: 1.2; }
+        .xhs-badge { 
+            display: inline-block; background: #ff2442; color: #fff; 
+            padding: 5px 12px; border-radius: 8px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px;
+        }
+        .xhs-preview { 
+            flex: 0.8; position: relative; max-width: 350px;
+            border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(255, 36, 66, 0.15);
+        }
+        .xhs-preview img { width: 100%; height: auto; transition: 0.5s; display: block; }
+        .xhs-preview:hover img { transform: scale(1.05); }
+
         /* Special Home Page UI Elements */
         .cta-section { background: linear-gradient(135deg, #00c2d1, #0096a6); color: #fff; text-align: center; border-radius: 26px; padding: 80px 20px; margin: 40px auto; max-width: 1100px; }
         .cta-section .btn-white { background: #fff; color: var(--main); padding: 14px 32px; border-radius: 30px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
@@ -19,6 +37,11 @@
 
         @keyframes zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
         .hero-zoom img { animation: zoom 20s infinite alternate; }
+
+        @media(max-width: 768px) {
+            .xhs-promo { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .xhs-preview { order: -1; width: 100%; max-width: 280px; margin: 0 auto; }
+        }
     </style>
 </head>
 <body>
@@ -99,6 +122,25 @@
             </div>
             <a href="accommodation.html" class="card-btn">查看住宿 / View Stay</a>
         </div>
+    </div>
+</section>
+
+<section class="xhs-promo">
+    <div class="xhs-preview">
+        <a href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank">
+            <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=600" alt="Semporna Tour Redbook">
+        </a>
+    </div>
+    <div class="xhs-content">
+        <div class="xhs-badge">小红书 / Little Red Book</div>
+        <h2 class="cn">关注我们的动态</h2>
+        <h2 class="en hidden">Follow Our Updates</h2>
+        <p class="cn">在小红书上查看真实的客片实拍、旅游攻略和最前线的仙本那果冻海实况！</p>
+        <p class="en hidden">Check out real guest photos, travel tips, and live Semporna jelly-sea updates on Redbook!</p>
+        <p style="font-weight: bold; margin-top: 15px; color: #ff2442;">ID: Deso_89</p>
+        <a href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank" class="card-btn" style="background: #ff2442; margin-top: 10px;">
+            <span class="cn">去小红书看看</span><span class="en hidden">View on Redbook</span>
+        </a>
     </div>
 </section>
 
