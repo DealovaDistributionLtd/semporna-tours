@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PAGE TITLE</title>
-
+<title>评价 / Reviews | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,8 +11,6 @@
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -25,12 +22,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -40,33 +33,46 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="https://images.unsplash.com/1600788886242-5c96c9c55e5b?auto=format&fit=crop&w=1400&q=80">
-  <div class="hero-content">
-    <h1 class="cn">中文标题</h1>
-    <h1 class="en hidden">English Title</h1>
-    <p class="cn">中文描述</p>
-    <p class="en hidden">English description</p>
+<section>
+  <h2 class="cn">客户评价</h2>
+  <h2 class="en hidden">Customer Reviews</h2>
+
+  <div class="grid">
+    <div class="card">
+      <p class="cn">“服务非常专业，潜水体验超棒！”</p>
+      <p class="en hidden">"Amazing service and diving experience!"</p>
+      <strong>- 李小姐 / Miss Li</strong>
+    </div>
+    <div class="card">
+      <p class="cn">“小团体体验让我们非常舒适。”</p>
+      <p class="en hidden">"Small group made everything very comfortable."</p>
+      <strong>- John D.</strong>
+    </div>
+    <div class="card">
+      <p class="cn">“住宿环境美丽，水上屋超赞！”</p>
+      <p class="en hidden">"Beautiful rooms and overwater house was amazing!"</p>
+      <strong>- 王先生 / Mr. Wang</strong>
+    </div>
   </div>
 </section>
 
-<!-- CONTENT -->
-<section class="grid">
-  <div class="card">
-    <h3 class="cn">内容标题</h3>
-    <h3 class="en hidden">Content Title</h3>
-    <p class="cn">内容说明</p>
-    <p class="en hidden">Content description</p>
-  </div>
-</section>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
 
-<script src="js/main.js"></script>
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
