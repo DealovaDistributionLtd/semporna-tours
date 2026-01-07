@@ -69,7 +69,6 @@ nav a{margin-left:18px;font-weight:600;cursor:pointer}
 .hero-content{
   max-width:900px;
   padding:20px;
-  animation:fadeUp 1s ease;
 }
 .hero h1{
   font-size:clamp(2.3rem,5vw,3.3rem);
@@ -118,16 +117,6 @@ h2{text-align:center;margin-bottom:36px}
   border-radius:24px;
   box-shadow:var(--shadow);
   text-align:center;
-}
-.wechat-box img{
-  max-width:240px;
-  margin:18px auto;
-  border-radius:20px;
-}
-.wechat-box strong{
-  display:block;
-  font-size:1.2rem;
-  margin-top:10px;
 }
 
 .cta{
@@ -178,9 +167,36 @@ h2{text-align:center;margin-bottom:36px}
 }
 .btn:hover{background:#0096a6}
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:none}
+/* WeChat Popup */
+.wechat-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.wechat-popup .box{
+  background:#fff;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+  max-width:300px;
+}
+.wechat-popup img{
+  width:220px;
+  border-radius:16px;
+}
+.wechat-popup button{
+  margin-top:14px;
+  padding:8px 18px;
+  border:none;
+  border-radius:18px;
+  background:var(--main);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -196,13 +212,13 @@ h2{text-align:center;margin-bottom:36px}
       <a onclick="scrollToSection('services')">项目 / Services</a>
       <a onclick="scrollToSection('gallery')">实拍 / Gallery</a>
       <a href="pricing.html">价格 / Pricing</a>
-      <a onclick="scrollToSection('wechat')">微信 / WeChat</a>
+      <a onclick="openWeChat()">微信 / WeChat</a>
     </div>
   </nav>
 </header>
 
 <section class="hero">
-  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna">
+  <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg">
   <div class="hero-content">
     <h1 class="cn">第一次来仙本那，就该这样玩</h1>
     <h1 class="en hidden">First Time in Semporna? Play Like This</h1>
@@ -211,46 +227,32 @@ h2{text-align:center;margin-bottom:36px}
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <h2 class="cn">我们提供的服务</h2>
   <h2 class="en hidden">What We Do</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>🏝️ 仙本那跳岛游</h3>
-      <p class="cn">波德伦岛、曼达布安、诗巴丹外围。浮潜、拍照、果冻海。</p>
-      <p class="en hidden">Bohey Dulang, Mantabuan & Sibuan islands. Snorkeling & photos.</p>
+      <p>Bohey Dulang · Mantabuan · Sibuan</p>
     </div>
-
     <div class="card">
       <h3>🤿 深潜体验</h3>
-      <p class="cn">世界级潜点，海龟、鲨鱼、珊瑚墙，专业潜导带领。</p>
-      <p class="en hidden">World-class dive sites with turtles & coral walls.</p>
+      <p>世界级潜点 · 专业潜导</p>
     </div>
-
     <div class="card">
       <h3>🎓 PADI 潜水课程</h3>
-      <p class="cn">OW / AOW 证照，小班教学，适合零基础。</p>
-      <p class="en hidden">OW / AOW certification, small groups.</p>
+      <p>OW / AOW 小班教学</p>
     </div>
-
     <div class="card">
       <h3>🏨 住宿安排</h3>
-      <p class="cn">度假村、潜水酒店、经济住宿，根据预算推荐。</p>
-      <p class="en hidden">Resorts, dive lodges & budget hotels.</p>
       <a href="accommodation.html" class="btn">查看住宿</a>
     </div>
-
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
-  <h2 class="cn">真实 · 仙本那实拍</h2>
-  <h2 class="en hidden">Real Semporna Photos</h2>
-
+  <h2>Real Semporna Photos</h2>
   <div class="gallery">
     <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg">
     <img src="https://www.mysabah.com/wordpress/wp-content/uploads/2016/02/mantabuan-island.jpg">
@@ -259,42 +261,43 @@ h2{text-align:center;margin-bottom:36px}
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
-  <h2 class="cn">想来仙本那？现在就联系我</h2>
-  <h2 class="en hidden">Planning a Semporna Trip?</h2>
+  <h2>想来仙本那？现在就联系我</h2>
   <a href="pricing.html" class="btn">查看价格</a>
-  <a href="#wechat" class="btn">添加微信</a>
-</section>
-
-<!-- WECHAT -->
-<section id="wechat">
-  <h2 class="cn">添加微信 · 咨询行程</h2>
-  <h2 class="en hidden">Add WeChat</h2>
-
-  <div class="wechat-box">
-    <p>扫码添加微信，获取行程建议</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <strong>Deso_89</strong>
-    <p>仙本那 · 当地向导</p>
-  </div>
+  <a onclick="openWeChat()" class="btn">添加微信</a>
 </section>
 
 <footer style="text-align:center;padding:20px">
   📍 Malaysia · Sabah · Semporna
 </footer>
 
-<div class="floating-wechat" onclick="scrollToSection('wechat')">
+<!-- Floating WeChat -->
+<div class="floating-wechat" onclick="openWeChat()">
   <img src="wechat-icon.png" alt="WeChat">
 </div>
 
+<!-- WeChat Popup -->
+<div id="wechatPopup" class="wechat-popup hidden">
+  <div class="box">
+    <img src="wechat-qr.jpg">
+    <p><strong>Deso_89</strong></p>
+    <button onclick="closeWeChat()">关闭 / Close</button>
+  </div>
+</div>
+
 <script>
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+function openWeChat(){
+  document.getElementById('wechatPopup').classList.remove('hidden');
+}
+function closeWeChat(){
+  document.getElementById('wechatPopup').classList.add('hidden');
+}
 document.getElementById('langToggle').onclick=()=>{
   document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
   document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
-}
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 </script>
 
