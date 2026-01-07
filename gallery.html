@@ -6,6 +6,7 @@
     <title>相册实拍 | Gallery - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Page-Specific Gallery Styles */
         .filter-container { text-align:center; padding:40px 20px 20px; }
         .filter-btn {
             background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 20px; 
@@ -13,6 +14,7 @@
         }
         .filter-btn.active, .filter-btn:hover { background:var(--main); color:#fff; }
 
+        /* Photo Grid (Masonry Style) */
         .gallery-grid {
             max-width: 1200px; margin: auto; padding: 0 20px 80px;
             columns: 3 250px; column-gap: 20px;
@@ -20,11 +22,12 @@
         .photo-item {
             margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
             overflow: hidden; box-shadow: var(--shadow); background: #fff; transition: 0.3s;
-            cursor: pointer; display: block;
+            cursor: pointer;
         }
         .photo-item:hover { transform: scale(1.02); }
         .photo-item img { width: 100%; height: auto; display: block; }
 
+        /* Lightbox */
         .lightbox {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             display: none; justify-content: center; align-items: center;
@@ -57,14 +60,6 @@
     </nav>
 </header>
 
-<section class="hero">
-    <img src="images/hero-gallery.jpg" alt="Semporna" onerror="this.src='8a80818a9392f1f5019394dd1d654120_449246.jpg'">
-    <div class="hero-content">
-        <h1 class="cn">真实拍摄，美景直击</h1>
-        <h1 class="en hidden">Real Shots, Pure Beauty</h1>
-    </div>
-</section>
-
 <div class="filter-container">
     <button class="filter-btn active" onclick="filterGallery('all', this)">
         <span class="cn">全部</span><span class="en hidden">All</span>
@@ -80,7 +75,16 @@
     </button>
 </div>
 
-<div class="gallery-grid" id="galleryGrid"></div>
+<div class="gallery-grid" id="galleryGrid">
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
+    
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving1.jpg" onerror="this.parentElement.style.display='none'"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving2.jpg" onerror="this.parentElement.style.display='none'"></div>
+    
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/island1.jpg" onerror="this.parentElement.style.display='none'"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/island2.jpg" onerror="this.parentElement.style.display='none'"></div>
+</div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
@@ -89,42 +93,24 @@
 
 <script src="main.js"></script>
 <script>
-    // 1. LIST YOUR ACTUAL FILENAMES HERE
-    // Replace these names with the exact names of the files in your 'images' folder
-    const photoData = [
-        { src: '8a80818a9392f1f5019394dd1d654120_449246.jpg', cat: 'rooms' },
-        { src: '8a80818a9418d64501941b6475e034a0_144557.jpg', cat: 'rooms' },
-        { src: 'images/diving1.jpg', cat: 'diving' },
-        { src: 'images/diving2.jpg', cat: 'diving' },
-        { src: 'images/island1.jpg', cat: 'islands' },
-        { src: 'images/island2.jpg', cat: 'islands' },
-        // ... add the rest of your 30 images here
-    ];
-
-    const grid = document.getElementById('galleryGrid');
-
-    // Generate HTML for the photos
-    function loadGallery() {
-        photoData.forEach(photo => {
-            const item = document.createElement('div');
-            item.className = `photo-item ${photo.cat}`;
-            item.onclick = () => openLightbox(photo.src);
-            item.innerHTML = `<img src="${photo.src}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
-            grid.appendChild(item);
-        });
-    }
-
     function filterGallery(category, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        document.querySelectorAll('.photo-item').forEach(item => {
-            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+        const items = document.querySelectorAll('.photo-item');
+        items.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
         });
     }
 
-    function openLightbox(src) {
-        document.getElementById('lightbox-img').src = src;
-        document.getElementById('lightbox').style.display = 'flex';
+    function openLightbox(el) {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = el.querySelector('img').src;
+        lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 
@@ -132,9 +118,6 @@
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = '';
     }
-
-    // Run on load
-    loadGallery();
 </script>
 </body>
 </html>
