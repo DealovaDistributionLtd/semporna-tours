@@ -2,9 +2,76 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>联系 / Contact | Semporna Tours</title>
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>联系我们 | Contact Us - Semporna Tours</title>
+<style>
+:root{
+  --main:#00c2d1;
+  --bg:#f6fbfc;
+  --card:#fff;
+  --radius:16px;
+  --shadow:0 16px 34px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
+
+/* Header/Nav - Persistent Header */
+header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
+.nav-container{
+  max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
+}
+.nav-container b.logo{color:var(--main);font-size:1.3rem;}
+.nav-links{display:flex;gap:15px;align-items:center;}
+.nav-links a, .nav-links button{
+  font-weight:600;background:none;border:none;cursor:pointer;color:#0e2a33;font-size:0.95rem;transition: 0.2s;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--main);}
+.nav-links button.lang-btn{background:var(--main);color:#fff;padding:6px 12px;border-radius:12px;margin-left:5px;}
+
+/* Mobile Hamburger */
+.hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
+.mobile-menu{
+  position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
+  display:flex;flex-direction:column;padding:20px;z-index:100;
+}
+.mobile-menu a, .mobile-menu button{
+  margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
+}
+.hidden{display:none !important;}
+
+/* Hero */
+.hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
+.hero-content{position:relative; z-index: 2; max-width:900px;padding:20px; animation:fadeUp 1s ease;}
+
+/* Contact Layout */
+section{max-width:1100px;margin:auto;padding:60px 20px;}
+.contact-grid{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+
+.contact-card{background:var(--card);padding:40px;border-radius:var(--radius);box-shadow:var(--shadow);text-align:center;}
+.qr-code{width:200px;margin:0 auto 20px;border-radius: 12px;border: 1px solid #eee;}
+
+.info-list{text-align: left; margin-top: 30px;}
+.info-item{display: flex; align-items: center; margin-bottom: 20px; gap: 15px;}
+.info-item i{font-size: 1.5rem; color: var(--main); width: 30px;}
+
+.social-links{display: flex; gap: 15px; justify-content: center; margin-top: 25px;}
+.social-btn{background: #f0f8fa; padding: 12px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: 0.3s;}
+.social-btn:hover{background: var(--main); color: #fff;}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;width: 100%;}
+.btn:hover{background:#0096a6;transform:scale(1.02);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+@media(max-width:992px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
+}
+</style>
 </head>
 <body>
 
@@ -17,61 +84,108 @@
       <a href="accommodation.html">住宿 / Accommodation</a>
       <a href="gallery.html">相册 / Gallery</a>
       <a href="reviews.html">评价 / Reviews</a>
-      <a href="about.html">关于我们 / About</a>
+      <a href="about.html">关于 / About</a>
       <a href="faq.html">常见问题 / FAQ</a>
-      <a href="contact.html">联系 / Contact</a>
+      <a href="contact.html" class="active">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
+
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
     <a href="gallery.html">相册 / Gallery</a>
     <a href="reviews.html">评价 / Reviews</a>
-    <a href="about.html">关于我们 / About</a>
+    <a href="about.html">关于 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    <a href="contact.html" class="active">联系 / Contact</a>
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧 中英切换</button>
   </div>
 </header>
 
-<section>
-  <h2 class="cn">联系我们</h2>
-  <h2 class="en hidden">Contact Us</h2>
-
-  <div class="grid">
-    <div class="card">
-      <form action="#" method="POST">
-        <input type="text" name="name" placeholder="姓名 / Name" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;">
-        <input type="email" name="email" placeholder="邮箱 / Email" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;">
-        <textarea name="message" placeholder="留言 / Message" required style="width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc;"></textarea>
-        <button type="submit" class="btn">发送 / Send</button>
-      </form>
-    </div>
-
-    <div class="card">
-      <h3 class="cn">我们的地址</h3>
-      <h3 class="en hidden">Our Location</h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=1000" alt="Contact Semporna Tours">
+  <div class="hero-content">
+    <h1 class="cn">联系我们</h1>
+    <h1 class="en hidden">Contact Us</h1>
+    <p class="cn">开启您的仙本那果冻海之旅</p>
+    <p class="en hidden">Start your crystal water journey today</p>
   </div>
 </section>
 
-<div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat">
-</div>
+<section>
+  <div class="contact-grid">
+    
+    <div class="contact-card">
+      <h3 class="cn">微信咨询</h3>
+      <h3 class="en hidden">WeChat Inquiry</h3>
+      <p class="cn">扫码添加教练，获取实时出海时间与天气建议</p>
+      <p class="en hidden">Scan to chat with the coach for real-time trip schedules</p>
+      
+      <img src="wechat-qr.jpg" alt="WeChat QR Code" class="qr-code">
+      
+      <p><strong>ID: Deso_89</strong></p>
+      <button onclick="copyID()" class="btn">
+        <span class="cn">复制微信号</span>
+        <span class="en hidden">Copy WeChat ID</span>
+      </button>
+    </div>
 
-<div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p>扫码添加微信咨询 / Add WeChat</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <strong>Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
+    <div class="contact-card">
+      <h3 class="cn">其他联系方式</h3>
+      <h3 class="en hidden">Other Contacts</h3>
+      
+      <div class="info-list">
+        <div class="info-item">
+          <span>📍</span>
+          <div>
+            <strong class="cn">地址</strong><strong class="en hidden">Address</strong><br>
+            Semporna, Sabah, Malaysia
+          </div>
+        </div>
+        <div class="info-item">
+          <span>⏰</span>
+          <div>
+            <strong class="cn">营业时间</strong><strong class="en hidden">Hours</strong><br>
+            08:00 - 22:00 (Daily)
+          </div>
+        </div>
+      </div>
+
+      <h4 class="cn" style="margin-top:30px;">社交媒体</h4>
+      <h4 class="en hidden" style="margin-top:30px;">Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@deso__89" target="_blank" class="social-btn">TikTok</a>
+        <a href="https://xhslink.com/m/2nU4fzy4Tf" target="_blank" class="social-btn" style="font-size: 0.8rem;">小红书</a>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
-<script src="js/main.js" defer></script>
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+  <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
+
+function toggleLang() {
+  document.querySelectorAll('.cn').forEach(e=>e.classList.toggle('hidden'));
+  document.querySelectorAll('.en').forEach(e=>e.classList.toggle('hidden'));
+}
+document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
+document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+
+function copyID() {
+  navigator.clipboard.writeText("Deso_89");
+  alert("WeChat ID copied: Deso_89");
+}
+</script>
+
 </body>
 </html>
