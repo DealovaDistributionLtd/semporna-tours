@@ -6,6 +6,7 @@
     <title>相册实拍 | Gallery - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 页面专属样式：滤镜容器 */
         .filter-container { text-align:center; padding:40px 20px 20px; }
         .filter-btn {
             background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 20px; 
@@ -13,6 +14,7 @@
         }
         .filter-btn.active, .filter-btn:hover { background:var(--main); color:#fff; }
 
+        /* 瀑布流网格系统 */
         .gallery-grid {
             max-width: 1200px; margin: auto; padding: 0 20px 80px;
             columns: 3 250px; column-gap: 20px;
@@ -25,13 +27,14 @@
         .photo-item:hover { transform: scale(1.02); }
         .photo-item img { width: 100%; height: auto; display: block; }
 
+        /* 灯箱效果 (Lightbox) */
         .lightbox {
             position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             display: none; justify-content: center; align-items: center;
             z-index: 2000; padding: 20px;
         }
-        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
+        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; line-height: 1; }
 
         @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
     </style>
@@ -53,9 +56,32 @@
             <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
-        <button class="hamburger" id="hamburger">&#9776;</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
     </nav>
+
+    <div class="mobile-menu hidden" id="mobileMenu">
+        <a href="index.html">首页 / Home</a>
+        <a href="pricing.html">价格 / Pricing</a>
+        <a href="accommodation.html">住宿 / Accommodation</a>
+        <a href="island-hopping.html">跳岛 / Island Hopping</a>
+        <a href="gallery.html" class="active">相册 / Gallery</a>
+        <a href="reviews.html">评价 / Reviews</a>
+        <a href="about.html">关于 / About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">联系 / Contact</a>
+        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    </div>
 </header>
+
+<section class="hero">
+    <img src="images/8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Semporna Gallery">
+    <div class="hero-content">
+        <h1 class="cn">每一张照片，都是真实景色</h1>
+        <h1 class="en hidden">Real Semporna, Through Our Lens</h1>
+        <p class="cn">12年专业教练实拍：记录水下的震撼与静谧</p>
+        <p class="en hidden">Real shots by pro coach: Capturing the wonders of the sea</p>
+    </div>
+</section>
 
 <div class="filter-container">
     <button class="filter-btn active" onclick="filterGallery('all', this)">
@@ -73,7 +99,6 @@
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
-    
     <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving.jpg"></div>
     <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251209-WA0019.jpg"></div>
     <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/IMG-20251205-WA0029.jpg"></div>
@@ -98,8 +123,14 @@
     <img id="lightbox-img" src="">
 </div>
 
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+    <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
+
 <script src="main.js"></script>
+
 <script>
+    // 页面专属：图片滤镜逻辑
     function filterGallery(category, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -113,12 +144,13 @@
         });
     }
 
+    // 页面专属：灯箱弹窗逻辑
     function openLightbox(el) {
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
         img.src = el.querySelector('img').src;
         lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // 防止背景滚动
     }
 
     function closeLightbox() {
@@ -126,5 +158,6 @@
         document.body.style.overflow = '';
     }
 </script>
+
 </body>
 </html>
