@@ -8,6 +8,7 @@
     <style>
         section { max-width: 1100px; margin: auto; padding: 40px 20px; }
         h2 { margin: 40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px; font-size: 1.5rem; }
+        h3 { margin-top: 30px; color: #0e2a33; border-bottom: 2px solid #eee; padding-bottom: 5px; }
         
         .price-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { 
@@ -129,30 +130,63 @@
         <span class="currency-note cn">* 价格已按 1 MYR ≈ 1.72 CNY 汇率转换</span>
         <span class="currency-note en hidden">* Converted based on 1 MYR ≈ 1.72 CNY</span>
 
-        <h3 class="cn">路线 A — TSMP 敦沙卡兰 (国际游客)</h3>
-        <h3 class="en hidden">Route A — TSMP Route (International)</h3>
+        <h3 class="cn">路线 A — TSMP 敦沙卡兰</h3>
+        <h3 class="en hidden">Route A — TSMP Route</h3>
+        
+        <h4 style="margin: 10px 0;"><span class="cn">本地 / 工作准证持有者</span><span class="en hidden">Local / Permit Holder</span></h4>
         <table>
-            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">浮潜 + 徒步 (成人)</span><span class="en hidden">Snorkeling + Hiking (Adult)</span></td><td>¥ 370</td></tr>
-                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 1,041</td></tr>
-                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive (Certified)</span></td><td>¥ 1,256</td></tr>
+                <tr><td><span class="cn">浮潜+登山 (成人 11+)</span><span class="en hidden">Snorkeling+Hiker (Adult)</span></td><td>¥ 267</td></tr>
+                <tr><td><span class="cn">浮潜+登山 (儿童 3-10)</span><span class="en hidden">Snorkeling+Hiker (Child)</span></td><td>¥ 129</td></tr>
+                <tr><td><span class="cn">浮潜 不登山 (成人 11+)</span><span class="en hidden">Snorkeling Non-Hiker (Adult)</span></td><td>¥ 198</td></tr>
+                <tr><td><span class="cn">浮潜 不登山 (儿童 3-10)</span><span class="en hidden">Snorkeling Non-Hiker (Child)</span></td><td>¥ 95</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 826</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 1,041</td></tr>
             </tbody>
         </table>
 
-        <h3 class="cn">路线 B & C — 马布/马达京 (国际游客)</h3>
-        <h3 class="en hidden">Route B & C — Mabul/Mataking (International)</h3>
+        <h4 style="margin: 10px 0;"><span class="cn">国际游客</span><span class="en hidden">International</span></h4>
         <table>
-            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">路线 B/C 浮潜</span><span class="en hidden">Route B/C Snorkeling</span></td><td>¥ 181</td></tr>
-                <tr><td><span class="cn">路线 B/C 深潜体验 (DSD)</span><span class="en hidden">Route B/C Scuba (DSD)</span></td><td>¥ 593</td></tr>
+                <tr><td><span class="cn">浮潜+登山 (成人 11+)</span><span class="en hidden">Snorkeling+Hiker (Adult)</span></td><td>¥ 370</td></tr>
+                <tr><td><span class="cn">浮潜+登山 (儿童 1-10)</span><span class="en hidden">Snorkeling+Hiker (Child)</span></td><td>¥ 224</td></tr>
+                <tr><td><span class="cn">浮潜 不登山 (成人 11+)</span><span class="en hidden">Snorkeling Non-Hiker (Adult)</span></td><td>¥ 249</td></tr>
+                <tr><td><span class="cn">浮潜 不登山 (儿童 1-10)</span><span class="en hidden">Snorkeling Non-Hiker (Child)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 1,041</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 1,256</td></tr>
+            </tbody>
+        </table>
+
+        <h3 class="cn">路线 B & C — 马布 / 马达京</h3>
+        <h3 class="en hidden">Route B & C — Mabul / Mataking</h3>
+        
+        <h4 style="margin: 10px 0;"><span class="cn">本地 / 工作准证持有者</span><span class="en hidden">Local / Permit Holder</span></h4>
+        <table>
+            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 3-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 95</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 592</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 697</td></tr>
+            </tbody>
+        </table>
+
+        <h4 style="margin: 10px 0;"><span class="cn">国际游客</span><span class="en hidden">International</span></h4>
+        <table>
+            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">浮潜 (儿童 1-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 138</td></tr>
+                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 593</td></tr>
+                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 697</td></tr>
             </tbody>
         </table>
         
         <div style="text-align: center;">
             <a href="island-hopping.html" class="btn-pricing" target="_blank">
-                <span class="cn">查看更多路线详情</span><span class="en hidden">View More Route Details</span>
+                <span class="cn">查看路线地图与详情</span><span class="en hidden">View Maps & Details</span>
             </a>
         </div>
     </div>
@@ -213,7 +247,6 @@
         document.getElementById(tabId).classList.add('active');
         
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        // Dynamic button activation
         if(tabId === 'diving') document.getElementById('tab-diving-btn').classList.add('active');
         if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
         if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
