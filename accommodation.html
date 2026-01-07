@@ -17,8 +17,13 @@
 
         /* Slider Styles - Page Specific */
         .slider { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 3 / 2; background: #eee; }
-        .slider img { width: 100%; height: 100%; object-fit: cover; transition: .3s; }
-        .slider button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: #fff; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; transition: 0.2s; z-index: 5; }
+        .slider img { width: 100%; height: 100%; object-fit: cover; display: none; transition: opacity 0.3s ease; }
+        .slider img.active { display: block; }
+        .slider button { 
+            position: absolute; top: 50%; transform: translateY(-50%); 
+            background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 10px 15px; 
+            border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 5;
+        }
         .slider button:hover { background: var(--main); }
         .slider .prev { left: 10px; }
         .slider .next { right: 10px; }
@@ -38,7 +43,7 @@
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
             <a href="about.html">关于 / About</a>
-            <a href="faq.html">常见问题 / FAQ</a>
+            <a href="faq.html">FAQ</a>
             <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
@@ -52,7 +57,7 @@
         <a href="gallery.html">相册 / Gallery</a>
         <a href="reviews.html">评价 / Reviews</a>
         <a href="about.html">关于 / About</a>
-        <a href="faq.html">常见问题 / FAQ</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">联系 / Contact</a>
         <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
@@ -71,10 +76,12 @@
 <section id="rooms">
     <div class="grid">
         <div class="card">
-            <div class="slider" data-images='["8a80818a9392f1f5019394dd1d654120_449246.jpg","8a80818a9392f1f5019394dd1d654120_534811.jpg","8a80818a9392f1f5019394dd1d654120_613304.jpg"]'>
-                <img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Ocean View Room">
-                <button class="prev" onclick="prevSlide(this)">‹</button>
-                <button class="next" onclick="nextSlide(this)">›</button>
+            <div class="slider" data-current="0">
+                <img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" class="active" alt="Room 1A">
+                <img src="8a80818a9392f1f5019394dd1d654120_534811.jpg" alt="Room 1B">
+                <img src="8a80818a9392f1f5019394dd1d654120_613304.jpg" alt="Room 1C">
+                <button class="prev" onclick="changeSlide(this, -1)">‹</button>
+                <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
             <h3 class="cn">海景大床房</h3>
             <h3 class="en hidden">Ocean View Room</h3>
@@ -94,10 +101,12 @@
         </div>
 
         <div class="card">
-            <div class="slider" data-images='["8a80818a97ad823d0197aec033d73f77_153709.jpg","8a80818a97ad823d0197aec033d73f77_488649.jpg","8a80818a97ad823d0197aec033d73f77_577868.jpg"]'>
-                <img src="8a80818a97ad823d0197aec033d73f77_153709.jpg" alt="Detached Overwater Room">
-                <button class="prev" onclick="prevSlide(this)">‹</button>
-                <button class="next" onclick="nextSlide(this)">›</button>
+            <div class="slider" data-current="0">
+                <img src="8a80818a97ad823d0197aec033d73f77_153709.jpg" class="active" alt="Room 2A">
+                <img src="8a80818a97ad823d0197aec033d73f77_488649.jpg" alt="Room 2B">
+                <img src="8a80818a97ad823d0197aec033d73f77_577868.jpg" alt="Room 2C">
+                <button class="prev" onclick="changeSlide(this, -1)">‹</button>
+                <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
             <h3 class="cn">独立水上房</h3>
             <h3 class="en hidden">Detached Overwater Room</h3>
@@ -117,10 +126,12 @@
         </div>
 
         <div class="card">
-            <div class="slider" data-images='["8a80818a9418d64501941b6475e034a0_144557.jpg","8a80818a9418d64501941b6475e034a0_43838.jpg","8a80818a9418d64501941b6475e034a0_455578.jpg"]'>
-                <img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Ocean View Twin Room">
-                <button class="prev" onclick="prevSlide(this)">‹</button>
-                <button class="next" onclick="nextSlide(this)">›</button>
+            <div class="slider" data-current="0">
+                <img src="8a80818a9418d64501941b6475e034a0_144557.jpg" class="active" alt="Room 3A">
+                <img src="8a80818a9418d64501941b6475e034a0_43838.jpg" alt="Room 3B">
+                <img src="8a80818a9418d64501941b6475e034a0_455578.jpg" alt="Room 3C">
+                <button class="prev" onclick="changeSlide(this, -1)">‹</button>
+                <button class="next" onclick="changeSlide(this, 1)">›</button>
             </div>
             <h3 class="cn">海景双床房</h3>
             <h3 class="en hidden">Ocean View Twin Room</h3>
@@ -160,5 +171,25 @@
 </div>
 
 <script src="main.js"></script>
+<script>
+    // Page-Specific Multi-Slider Logic
+    function changeSlide(btn, direction) {
+        const slider = btn.parentElement;
+        const images = slider.querySelectorAll('img');
+        let index = parseInt(slider.getAttribute('data-current'));
+
+        // Hide current image
+        images[index].classList.remove('active');
+
+        // Calculate new index
+        index += direction;
+        if (index >= images.length) index = 0;
+        if (index < 0) index = images.length - 1;
+
+        // Show new image
+        images[index].classList.add('active');
+        slider.setAttribute('data-current', index);
+    }
+</script>
 </body>
 </html>
