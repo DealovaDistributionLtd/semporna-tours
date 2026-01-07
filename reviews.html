@@ -7,14 +7,38 @@
 <link rel="stylesheet" href="style.css">
 <style>
   /* Page-Specific Styles for Review Cards */
-  section{max-width:1100px;margin:auto;padding:40px 20px;}
-  .grid{display:grid;gap:25px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
-  .card{background:var(--card);padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s;display: flex;flex-direction: column;}
-  .card:hover{transform:translateY(-5px);}
-  .stars{color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px;}
-  .card p{font-style: italic; color: #444; margin-bottom: 15px; flex-grow: 1;}
-  .card strong{color: var(--main); font-size: 1rem;}
-  .btn-contact{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 24px;border-radius:30px;transition:.3s;text-align:center;border:none;cursor:pointer;}
+  section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+  
+  /* Standardized Hero (Matches other pages) */
+  .hero { 
+      position: relative; 
+      min-height: 60vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      color: #fff; 
+      background: #000; 
+      overflow: hidden; 
+  }
+  .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+      z-index: 2;
+  }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 20px; }
+
+  .grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .card { background: var(--card); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); transition: .3s; display: flex; flex-direction: column; }
+  .card:hover { transform: translateY(-5px); }
+  .stars { color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px; }
+  .card p { font-style: italic; color: #444; margin-bottom: 15px; flex-grow: 1; }
+  .card strong { color: var(--main); font-size: 1rem; }
+  
+  .btn-contact { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 24px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -26,7 +50,6 @@
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
       <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="island-hopping.html">跳岛 / Island Hopping</a>
       <a href="gallery.html">相册 / Gallery</a>
       <a href="reviews.html" class="active">评价 / Reviews</a>
       <a href="about.html">关于 / About</a>
@@ -41,7 +64,6 @@
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
     <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="island-hopping.html">跳岛 / Island Hopping</a>
     <a href="gallery.html">相册 / Gallery</a>
     <a href="reviews.html" class="active">评价 / Reviews</a>
     <a href="about.html">关于 / About</a>
@@ -52,12 +74,12 @@
 </header>
 
 <section class="hero">
-  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000" alt="Reviews Hero">
+  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200" alt="Reviews Hero">
   <div class="hero-content">
     <h1 class="cn">来自真实的旅行心声</h1>
     <h1 class="en hidden">Voices from Real Travelers</h1>
-    <p class="cn">12年坚持，只为换来您的一句“值得”</p>
-    <p class="en hidden">12 years of passion, all for your "worth it" moment</p>
+    <p class="cn">每一份好评，都是对我们专业服务的肯定</p>
+    <p class="en hidden">Every review is a testament to our professional service</p>
   </div>
 </section>
 
@@ -121,16 +143,16 @@
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
     <p class="cn">扫码添加微信分享您的评价</p>
     <p class="en hidden">Add WeChat to share your review</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
-    <strong>ID: Deso_89</strong><br>
-    <button onclick="closeWechat()">关闭 / Close</button>
+    <img src="images/wechat-qr.jpg" alt="WeChat QR">
+    <br><strong>ID: Deso_89</strong><br>
+    <button onclick="closeWechat()" class="btn-contact" style="width:100%; background:#666; margin-top:10px;">关闭 / Close</button>
   </div>
 </div>
 
