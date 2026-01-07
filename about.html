@@ -50,12 +50,12 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 section{max-width:1000px;margin:auto;padding:60px 20px;}
 .profile-flex{display:flex; gap:40px; align-items:center; flex-wrap:wrap; margin-bottom:60px;}
 .profile-img{flex:1; min-width:300px;}
-.profile-img img{border-radius:var(--radius); box-shadow:var(--shadow);}
+.profile-img img{border-radius:var(--radius); box-shadow:var(--shadow); min-height: 400px; object-fit: cover;}
 .profile-text{flex:1; min-width:300px;}
 
 .stats-grid{display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); text-align:center; margin-top:40px;}
-.stat-card{background:var(--card); padding:30px; border-radius:var(--radius); box-shadow:var(--shadow);}
-.stat-card h4{font-size:2rem; color:var(--main); margin:0;}
+.stat-card{background:var(--card); padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); border-bottom: 4px solid var(--main);}
+.stat-card h4{font-size:2.5rem; color:var(--main); margin:0;}
 
 /* Floating WeChat Icon */
 .floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
@@ -66,7 +66,7 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
 .wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:1000;}
 .wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
 .wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none;}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none; text-align: center;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
@@ -93,7 +93,7 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-    <button class="hamburger" id="hamburger">&#9776;</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu Switch">&#9776;</button>
   </nav>
 
   <div class="mobile-menu hidden" id="mobileMenu">
@@ -110,45 +110,50 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
 </header>
 
 <section class="hero">
-  <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=1200" alt="About Semporna">
+  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600" alt="Semporna Diving" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600'">
   <div class="hero-content">
-    <h1 class="cn">关于我们</h1>
-    <h1 class="en hidden">About Us</h1>
-    <p class="cn">当地专业向导，带您探索仙本那的每一处纯净</p>
-    <p class="en hidden">Local professional guides, exploring the purity of Semporna with you</p>
+    <h1 class="cn">十二年专注，只为最美的仙本那</h1>
+    <h1 class="en hidden">12+ Years Dedicated to Semporna's Beauty</h1>
+    <p class="cn">深耕当地，为您开启专业、安全的潜水之旅</p>
+    <p class="en hidden">Expert local knowledge for a professional, safe diving journey</p>
   </div>
 </section>
 
 <section>
   <div class="profile-flex">
     <div class="profile-img">
-      <img src="https://images.unsplash.com/photo-1590523741877-2993d5fc5e7a?q=80&w=800" alt="Coach Deso_89">
+      <img src="https://images.unsplash.com/photo-1596431745483-e18e803b9b0a?q=80&w=800" alt="Coach Deso_89 Team" onerror="this.src='https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=800'">
     </div>
     <div class="profile-text">
       <h2 class="cn">你好，我是教练 Deso_89</h2>
       <h2 class="en hidden">Hi, I'm Coach Deso_89</h2>
-      <p class="cn">作为一名土生土长的仙本那向导，我深爱着这片如果冻般的海洋。我们的团队由多位拥有 PADI 认证的资深教练组成，致力于为每一位来到仙本那的游客提供**安全、专业、有趣**的旅行体验。</p>
-      <p class="en hidden">As a local Semporna guide, I have a deep love for these jelly-like waters. Our team consists of PADI-certified instructors dedicated to providing a **safe, professional, and fun** experience for every traveler.</p>
-      <p class="cn">我们不走马观花，不赶行程。无论您是想考取潜水证，还是只想在无人岛享受阳光，我们都会为您制定最合适的方案。</p>
-      <p class="en hidden">We don't rush. Whether you want to get certified or just enjoy the sun on a secluded island, we tailor the best plan for you.</p>
-      <button class="btn" onclick="openWechat()" style="margin-top:20px;">立即微信沟通 / Chat with Me</button>
+      <p class="cn">拥有**超过 12 年**的仙本那当地带团与潜水教学经验。我在这里出生、长大，对这片海域的每一个潜点、每一处洋流都了如指掌。</p>
+      <p class="en hidden">With **over 12 years** of experience in Semporna local tours and dive instruction, I know every dive site and current in these waters like the back of my hand.</p>
+      <p class="cn">我们的团队拒绝廉价团的走马观花。无论您是零基础的体验潜水，还是追求极致的诗巴丹深潜，我们都能确保您在最安全的前提下，看到最震撼的海底景观。</p>
+      <p class="en hidden">Our team rejects the rushed pace of budget tours. Whether you are a total beginner or a pro seeking the depths of Sipadan, we ensure you see the most stunning sights with absolute safety.</p>
+      <div style="margin-top: 30px;">
+        <button class="btn" onclick="openWechat()">
+          <span class="cn">立即微信沟通</span>
+          <span class="en hidden">Chat with Me</span>
+        </button>
+      </div>
     </div>
   </div>
 
   <div class="stats-grid">
     <div class="stat-card">
-      <h4>5+</h4>
-      <p class="cn">行业经验</p>
+      <h4>12+</h4>
+      <p class="cn">行业经验 (年)</p>
       <p class="en hidden">Years Experience</p>
     </div>
     <div class="stat-card">
-      <h4>1000+</h4>
+      <h4>5000+</h4>
       <p class="cn">接待游客</p>
-      <p class="en hidden">Happy Travelers</p>
+      <p class="en hidden">Satisfied Guests</p>
     </div>
     <div class="stat-card">
       <h4>PADI</h4>
-      <p class="cn">专业认证</p>
+      <p class="cn">资深教练团队</p>
       <p class="en hidden">Certified Experts</p>
     </div>
   </div>
@@ -164,16 +169,16 @@ section{max-width:1000px;margin:auto;padding:60px 20px;}
 
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
-    <p class="cn">扫码添加微信，直接与教练对话</p>
-    <p class="en hidden">Scan to add WeChat & chat with the coach</p>
-    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <p class="cn">扫码添加微信，与 12 年经验教练对话</p>
+    <p class="en hidden">Add WeChat & chat with 12-year expert coach</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR" onerror="this.alt='QR Code Placeholder'">
     <br><strong>Coach Deso_89</strong><br>
     <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
   </div>
 </div>
 
 <script>
-// Menu
+// Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
@@ -183,7 +188,7 @@ const popup = document.getElementById('wechatPopup');
 function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
 function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
 
-// Language Logic
+// Language Switch
 function toggleLang() {
   document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
