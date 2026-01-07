@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>仙本那潜水与跳岛 | Semporna Diving & Island Hopping</title>
-
 <link rel="stylesheet" href="css/style.css">
-<script src="js/main.js" defer></script>
 </head>
 <body>
 
+<!-- HEADER / NAV -->
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
@@ -26,7 +25,7 @@
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
 
-    <button class="hamburger" id="hamburger">☰</button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
 
   <div class="mobile-menu hidden" id="mobileMenu">
@@ -44,55 +43,63 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
-  </div>
-
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Semporna Sea">
   <div class="hero-content">
     <h1 class="cn">探索仙本那的海底世界</h1>
     <h1 class="en hidden">Explore Semporna’s Underwater World</h1>
-
     <p class="cn">潜水 · 跳岛 · 海上住宿</p>
     <p class="en hidden">Diving · Island Hopping · Sea Stays</p>
-
     <a href="pricing.html" class="btn">查看价格 / Pricing</a>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section">
+<section>
   <h2 class="cn">我们的服务</h2>
   <h2 class="en hidden">Our Services</h2>
 
   <div class="grid">
     <div class="card">
-      <h3>跳岛游 / Island Hopping</h3>
-      <p>敦沙卡兰海洋公园</p>
+      <h3 class="cn">跳岛游</h3>
+      <h3 class="en hidden">Island Hopping</h3>
+      <p class="cn">敦沙卡兰海洋公园、玻璃海</p>
+      <p class="en hidden">Tun Sakaran Marine Park & crystal waters</p>
+      <a href="pricing.html" class="btn">了解更多</a>
     </div>
+
     <div class="card">
-      <h3>潜水 / Diving</h3>
-      <p>初学者 & 持证潜水员</p>
+      <h3 class="cn">潜水体验</h3>
+      <h3 class="en hidden">Scuba Diving</h3>
+      <p class="cn">适合初学者与持证潜水员</p>
+      <p class="en hidden">For beginners & certified divers</p>
+      <a href="pricing.html" class="btn">了解更多</a>
     </div>
+
     <div class="card">
-      <h3>住宿 / Stay</h3>
-      <p>水上屋 · 海景房</p>
+      <h3 class="cn">住宿安排</h3>
+      <h3 class="en hidden">Accommodation</h3>
+      <p class="cn">水上屋 · 海景房 · 私人房</p>
+      <p class="en hidden">Overwater & ocean view rooms</p>
+      <a href="accommodation.html" class="btn">查看住宿</a>
     </div>
   </div>
 </section>
 
 <!-- FLOATING WECHAT -->
 <div class="floating-wechat" onclick="openWechat()">
-  <img src="wechat-icon.png">
+  <img src="wechat-icon.png" alt="WeChat">
 </div>
 
+<!-- WECHAT POPUP -->
 <div id="wechatPopup" class="wechat-popup">
   <div class="wechat-box">
-    <p>扫码添加微信</p>
-    <img src="wechat-qr.jpg">
-    <strong>Deso_89</strong>
-    <button onclick="closeWechat()">Close</button>
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
   </div>
 </div>
 
+<script src="js/main.js" defer></script>
 </body>
 </html>
