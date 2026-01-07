@@ -32,8 +32,6 @@
         .surcharge-box { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px dashed var(--main); margin-bottom: 40px; }
         .surcharge-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
         .btn-pricing { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; margin-top: 20px; }
-        
-        .back-nav { margin-bottom: 20px; display: inline-block; color: var(--main); font-weight: 700; cursor: pointer; }
         .currency-note { font-size: 0.85rem; color: #666; margin-bottom: 20px; display: block; text-align: center;}
     </style>
 </head>
@@ -75,34 +73,21 @@
     <div class="hero-content">
         <h1 class="cn">2026 仙本那行程价格表</h1>
         <h1 class="en hidden">2026 Semporna Price List</h1>
-        <p class="cn">专业教练 · 透明定价</p>
-        <p class="en hidden">Professional Coaches · Transparent Pricing</p>
     </div>
 </section>
 
 <section>
     <div class="price-tabs">
-        <button id="tab-diving-btn" class="tab-btn active" onclick="switchTab('diving')">
-            <span class="cn">潜水行程</span><span class="en hidden">Diving Tours</span>
-        </button>
-        <button id="tab-hopping-btn" class="tab-btn" onclick="switchTab('hopping')">
-            <span class="cn">跳岛游</span><span class="en hidden">Island Hopping</span>
-        </button>
-        <button id="tab-transport-btn" class="tab-btn" onclick="switchTab('transport')">
-            <span class="cn">接送</span><span class="en hidden">Transport</span>
-        </button>
+        <button id="tab-diving-btn" class="tab-btn active" onclick="switchTab('diving')">潜水课程 / Diving</button>
+        <button id="tab-hopping-btn" class="tab-btn" onclick="switchTab('hopping')">跳岛游 / Island Hopping</button>
+        <button id="tab-transport-btn" class="tab-btn" onclick="switchTab('transport')">接送 / Transport</button>
     </div>
 
     <div id="diving" class="price-content active">
         <h2 class="cn">DSD 深潜体验 (无证)</h2>
         <h2 class="en hidden">DSD Experience (No License)</h2>
         <table>
-            <thead>
-                <tr>
-                    <th><span class="cn">项目</span><span class="en hidden">Package</span></th>
-                    <th><span class="cn">价格</span><span class="en hidden">Price</span></th>
-                </tr>
-            </thead>
+            <thead><tr><th><span class="cn">项目</span><span class="en hidden">Package</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">1天/2次深潜 (Bum Bum岛)</span><span class="en hidden">1 Day/2 Dives (Bum Bum Island)</span></td><td>￥1,006.89</td></tr>
                 <tr><td><span class="cn">1天/3次深潜日游</span><span class="en hidden">1 Day/3 Dives Day Trip</span></td><td>￥1,179.01</td></tr>
@@ -111,88 +96,86 @@
         </table>
 
         <h2 class="cn">Fun Dive 娱乐潜水 (持证)</h2>
-        <h2 class="en hidden">Fun Dive (Certified)</h2>
+        <h2 class="en hidden">Fun Dive (Certified Divers)</h2>
         <table>
             <thead><tr><th><span class="cn">项目</span><span class="en hidden">Package</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">1天 / 6次娱乐潜水</span><span class="en hidden">1 Day / 6 Fun Dives</span></td><td>￥1,543.90</td></tr>
-                <tr><td><span class="cn">2天 / 9次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">2 Days / 9 Fun Dives (1 Day Sipadan)</span></td><td>￥3,583.50</td></tr>
-                <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹)</span><span class="en hidden">5 Days / 18 Fun Dives (2 Days Sipadan)</span></td><td>￥7,502.64</td></tr>
+                <tr><td><span class="cn">2天 / 9次娱乐潜水</span><span class="en hidden">2 Days / 9 Fun Dives</span></td><td>￥2,483.67</td></tr>
+                <tr><td><span class="cn">2天 / 9次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">2 Days / 9 Fun Dives (1D Sipadan)</span></td><td>￥3,583.50</td></tr>
+                <tr><td><span class="cn">3天 / 12次娱乐潜水</span><span class="en hidden">3 Days / 12 Fun Dives</span></td><td>￥3,423.43</td></tr>
+                <tr><td><span class="cn">3天 / 12次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">3 Days / 12 Fun Dives (1D Sipadan)</span></td><td>￥4,523.27</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水</span><span class="en hidden">4 Days / 15 Fun Dives</span></td><td>￥4,363.20</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">4 Days / 15 Fun Dives (1D Sipadan)</span></td><td>￥5,463.03</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水 (2天诗巴丹+3次其他)</span><span class="en hidden">4 Days / 15 Fun Dives (2D Sipadan)</span></td><td>￥6,562.87</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水</span><span class="en hidden">5 Days / 18 Fun Dives</span></td><td>￥5,302.96</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水 (1天诗巴丹)</span><span class="en hidden">5 Days / 18 Fun Dives (1D Sipadan)</span></td><td>￥6,402.80</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹)</span><span class="en hidden">5 Days / 18 Fun Dives (2D Sipadan)</span></td><td>￥7,502.64</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="cn">PADI 潜水课程</h2>
+        <h2 class="en hidden">PADI Courses</h2>
+        <table>
+            <thead><tr><th><span class="cn">课程</span><span class="en hidden">Course</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">2天 / PADI OW 初级潜水员课程</span><span class="en hidden">2 Days / PADI Open Water Course</span></td><td>￥3,149.76</td></tr>
+                <tr><td><span class="cn">3天 / PADI OW初级 + 3次娱乐潜水</span><span class="en hidden">3 Days / PADI OW + 3 Fun Dives</span></td><td>￥4,089.53</td></tr>
+                <tr><td><span class="cn">2天 / PADI AOW进阶 + 3次娱乐潜水 (共8潜)</span><span class="en hidden">2 Days / PADI AOW + 3 Fun Dives</span></td><td>￥3,289.18</td></tr>
+                <tr><td><span class="cn">2天 / PADI AOW进阶 + 诗巴丹 (共9潜)</span><span class="en hidden">2 Days / PADI AOW + Sipadan</span></td><td>￥4,526.71</td></tr>
+                <tr><td><span class="cn">3天 / PADI 救援潜水员 + EFR紧急第一反应</span><span class="en hidden">3 Days / PADI Rescue + EFR</span></td><td>￥4,173.87</td></tr>
+                <tr><td><span class="cn">6天5夜 OW + AOW 连报优惠</span><span class="en hidden">6D5N OW + AOW Combo Deal</span></td><td>￥6,438.95</td></tr>
             </tbody>
         </table>
     </div>
 
     <div id="hopping" class="price-content">
-        <div class="back-nav" onclick="switchTab('diving')">← <span class="cn">返回潜水价格</span><span class="en hidden">Back to Diving</span></div>
-        
         <h2 class="cn">跳岛游路线报价 (RMB)</h2>
         <h2 class="en hidden">Island Hopping Rates (RMB)</h2>
-        <span class="currency-note cn">* 价格已按 1 MYR ≈ 1.72 CNY 汇率转换</span>
-        <span class="currency-note en hidden">* Converted based on 1 MYR ≈ 1.72 CNY</span>
+        <span class="currency-note cn">* 价格按 1 MYR ≈ 1.72 CNY 转换，仅显示 Agent Rate</span>
+        <span class="currency-note en hidden">* Converted based on 1 MYR ≈ 1.72 CNY (Agent Rate only)</span>
 
         <h3 class="cn">路线 A — TSMP 敦沙卡兰</h3>
         <h3 class="en hidden">Route A — TSMP Route</h3>
-        
-        <h4 style="margin: 10px 0;"><span class="cn">本地 / 工作准证持有者</span><span class="en hidden">Local / Permit Holder</span></h4>
         <table>
-            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <thead><tr><th><span class="cn">项目 (分类)</span><span class="en hidden">Activity (Market)</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">浮潜+登山 (成人 11+)</span><span class="en hidden">Snorkeling+Hiker (Adult)</span></td><td>¥ 267</td></tr>
-                <tr><td><span class="cn">浮潜+登山 (儿童 3-10)</span><span class="en hidden">Snorkeling+Hiker (Child)</span></td><td>¥ 129</td></tr>
-                <tr><td><span class="cn">浮潜 不登山 (成人 11+)</span><span class="en hidden">Snorkeling Non-Hiker (Adult)</span></td><td>¥ 198</td></tr>
-                <tr><td><span class="cn">浮潜 不登山 (儿童 3-10)</span><span class="en hidden">Snorkeling Non-Hiker (Child)</span></td><td>¥ 95</td></tr>
-                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 826</td></tr>
-                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 1,041</td></tr>
+                <tr><td><span class="cn">浮潜+登山 成人 (本地)</span><span class="en hidden">Snorkel+Hike Adult (Local)</span></td><td>¥ 267</td></tr>
+                <tr><td><span class="cn">浮潜+登山 儿童 (本地)</span><span class="en hidden">Snorkel+Hike Child (Local)</span></td><td>¥ 129</td></tr>
+                <tr><td><span class="cn">浮潜+登山 成人 (国际)</span><span class="en hidden">Snorkel+Hike Adult (Intl)</span></td><td>¥ 370</td></tr>
+                <tr><td><span class="cn">浮潜+登山 儿童 (国际)</span><span class="en hidden">Snorkel+Hike Child (Intl)</span></td><td>¥ 224</td></tr>
+                <tr><td><span class="cn">路线A 深潜体验 DSD (本地)</span><span class="en hidden">Route A Scuba DSD (Local)</span></td><td>¥ 826</td></tr>
+                <tr><td><span class="cn">路线A 深潜体验 DSD (国际)</span><span class="en hidden">Route A Scuba DSD (Intl)</span></td><td>¥ 1,041</td></tr>
             </tbody>
         </table>
 
-        <h4 style="margin: 10px 0;"><span class="cn">国际游客</span><span class="en hidden">International</span></h4>
+        <h3 class="cn">路线 B — 马布岛 & 卡帕莱</h3>
+        <h3 class="en hidden">Route B — Mabul & Kapalai</h3>
         <table>
-            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <thead><tr><th><span class="cn">项目 (分类)</span><span class="en hidden">Activity (Market)</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">浮潜+登山 (成人 11+)</span><span class="en hidden">Snorkeling+Hiker (Adult)</span></td><td>¥ 370</td></tr>
-                <tr><td><span class="cn">浮潜+登山 (儿童 1-10)</span><span class="en hidden">Snorkeling+Hiker (Child)</span></td><td>¥ 224</td></tr>
-                <tr><td><span class="cn">浮潜 不登山 (成人 11+)</span><span class="en hidden">Snorkeling Non-Hiker (Adult)</span></td><td>¥ 249</td></tr>
-                <tr><td><span class="cn">浮潜 不登山 (儿童 1-10)</span><span class="en hidden">Snorkeling Non-Hiker (Child)</span></td><td>¥ 163</td></tr>
-                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 1,041</td></tr>
-                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 1,256</td></tr>
+                <tr><td><span class="cn">浮潜 成人 (本地)</span><span class="en hidden">Snorkeling Adult (Local)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">浮潜 成人 (国际)</span><span class="en hidden">Snorkeling Adult (Intl)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">路线B 深潜体验 DSD (本地)</span><span class="en hidden">Route B Scuba DSD (Local)</span></td><td>¥ 592</td></tr>
+                <tr><td><span class="cn">路线B 深潜体验 DSD (国际)</span><span class="en hidden">Route B Scuba DSD (Intl)</span></td><td>¥ 593</td></tr>
             </tbody>
         </table>
 
-        <h3 class="cn">路线 B & C — 马布 / 马达京</h3>
-        <h3 class="en hidden">Route B & C — Mabul / Mataking</h3>
-        
-        <h4 style="margin: 10px 0;"><span class="cn">本地 / 工作准证持有者</span><span class="en hidden">Local / Permit Holder</span></h4>
+        <h3 class="cn">路线 C — 马达京 / 邦邦岛 / 汀巴汀巴</h3>
+        <h3 class="en hidden">Route C — Mataking / Timba-Timba</h3>
         <table>
-            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
+            <thead><tr><th><span class="cn">项目 (分类)</span><span class="en hidden">Activity (Market)</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 163</td></tr>
-                <tr><td><span class="cn">浮潜 (儿童 3-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 95</td></tr>
-                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 592</td></tr>
-                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 697</td></tr>
+                <tr><td><span class="cn">浮潜 成人 (本地)</span><span class="en hidden">Snorkeling Adult (Local)</span></td><td>¥ 163</td></tr>
+                <tr><td><span class="cn">浮潜 成人 (国际)</span><span class="en hidden">Snorkeling Adult (Intl)</span></td><td>¥ 181</td></tr>
+                <tr><td><span class="cn">路线C 深潜体验 DSD (本地)</span><span class="en hidden">Route C Scuba DSD (Local)</span></td><td>¥ 592</td></tr>
+                <tr><td><span class="cn">路线C 深潜体验 DSD (国际)</span><span class="en hidden">Route C Scuba DSD (Intl)</span></td><td>¥ 593</td></tr>
             </tbody>
         </table>
-
-        <h4 style="margin: 10px 0;"><span class="cn">国际游客</span><span class="en hidden">International</span></h4>
-        <table>
-            <thead><tr><th><span class="cn">活动内容</span><span class="en hidden">Activity</span></th><th><span class="cn">价格</span><span class="en hidden">Price</span></th></tr></thead>
-            <tbody onclick="openWechat()">
-                <tr><td><span class="cn">浮潜 (成人 11+)</span><span class="en hidden">Snorkeling (Adult)</span></td><td>¥ 181</td></tr>
-                <tr><td><span class="cn">浮潜 (儿童 1-10)</span><span class="en hidden">Snorkeling (Child)</span></td><td>¥ 138</td></tr>
-                <tr><td><span class="cn">深潜体验 (DSD)</span><span class="en hidden">Scuba Diving (DSD)</span></td><td>¥ 593</td></tr>
-                <tr><td><span class="cn">娱乐潜水 (Fun Dive)</span><span class="en hidden">Fun Dive</span></td><td>¥ 697</td></tr>
-            </tbody>
-        </table>
-        
-        <div style="text-align: center;">
-            <a href="island-hopping.html" class="btn-pricing" target="_blank">
-                <span class="cn">查看路线地图与详情</span><span class="en hidden">View Maps & Details</span>
-            </a>
-        </div>
+        <div style="text-align: center;"><a href="island-hopping.html" class="btn-pricing" target="_blank"><span class="cn">查看路线详情</span><span class="en hidden">View Route Details</span></a></div>
     </div>
 
     <div id="transport" class="price-content">
-        <div class="back-nav" onclick="switchTab('diving')">← <span class="cn">返回潜水价格</span><span class="en hidden">Back to Diving</span></div>
         <h2 class="cn">斗湖机场接送服务</h2>
         <h2 class="en hidden">Airport Transfers</h2>
         <table>
@@ -200,7 +183,7 @@
             <tbody onclick="openWechat()">
                 <tr><td><span class="cn">机场拼车 (单程/每人)</span><span class="en hidden">Shared Shuttle (One Way/pax)</span></td><td>RM 25</td></tr>
                 <tr><td><span class="cn">私家包车 (4人座轿车)</span><span class="en hidden">Private Car (4 Seats)</span></td><td>RM 100</td></tr>
-                <tr><td><span class="cn">商务包车 (9人座面包车)</span><span class="en hidden">Private Van (9 Seats)</span></td><td>RM 180</td></tr>
+                <tr><td><span class="cn">商务包车 (9人面包车)</span><span class="en hidden">Private Van (9 Seats)</span></td><td>RM 180</td></tr>
             </tbody>
         </table>
     </div>
@@ -208,21 +191,12 @@
     <h2 class="cn">其他附加费用</h2>
     <h2 class="en hidden">Other Surcharges</h2>
     <div class="surcharge-box">
-        <div class="surcharge-item">
-            <span><strong class="cn">7-9月 旺季附加费</strong><strong class="en hidden">July-Sept Peak Season</strong></span>
-            <span>RM 40 <small class="cn">/人/晚</small><small class="en hidden">/pax/night</small></span>
-        </div>
-        <div class="surcharge-item">
-            <span><strong class="cn">单人房附加费</strong><strong class="en hidden">Single Room Surcharge</strong></span>
-            <span>RM 135 <small class="cn">/晚</small><small class="en hidden">/night</small></span>
-        </div>
+        <div class="surcharge-item"><span><strong class="cn">7-9月 旺季附加费</strong><strong class="en hidden">Peak Season</strong></span><span>RM 40 <small>/pax/night</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">额外续住 (每晚)</strong><strong class="en hidden">Extra Night</strong></span><span>RM 195 <small>/pax</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">单人房附加费</strong><strong class="en hidden">Single Room</strong></span><span>RM 135 <small>/night</small></span></div>
     </div>
 
-    <div style="text-align:center;">
-        <button onclick="openWechat()" class="btn-pricing">
-            <span class="cn">立即咨询</span><span class="en hidden">Contact Now</span>
-        </button>
-    </div>
+    <div style="text-align:center;"><button onclick="openWechat()" class="btn-pricing"><span class="cn">立即添加微信咨询</span><span class="en hidden">Contact via WeChat</span></button></div>
 </section>
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;"><p>© Semporna Tours - Coach Deso_89</p></footer>
@@ -231,12 +205,10 @@
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信获取行程建议</p>
-        <p class="en hidden">Scan WeChat for Itinerary Advice</p>
+        <p class="en hidden">Scan WeChat for Advice</p>
         <img src="wechat-qr.jpg" alt="QR">
         <br><strong>Coach Deso_89</strong><br>
-        <button onclick="closeWechat()" class="btn-pricing" style="width:100%;">
-            <span class="cn">关闭</span><span class="en hidden">Close</span>
-        </button>
+        <button onclick="closeWechat()" class="btn-pricing" style="width:100%;"><span class="cn">关闭</span><span class="en hidden">Close</span></button>
     </div>
 </div>
 
@@ -245,11 +217,10 @@
     function switchTab(tabId) {
         document.querySelectorAll('.price-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
-        
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         if(tabId === 'diving') document.getElementById('tab-diving-btn').classList.add('active');
-        if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
-        if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
+        else if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
+        else if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
     }
 </script>
 </body>
