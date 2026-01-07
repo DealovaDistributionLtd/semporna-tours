@@ -16,7 +16,7 @@
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Arial;background:var(--bg);color:#0e2a33;line-height:1.75;}
 a{text-decoration:none;color:inherit}
 
-/* NEW INTEGRATED HEADER */
+/* HEADER */
 header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);}
 .nav-container{
   max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;
@@ -31,8 +31,6 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 
 /* Hamburger */
 .hamburger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--main);}
-
-/* Mobile menu */
 .mobile-menu{
   position:absolute;top:100%;left:0;width:100%;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.15);
   display:flex;flex-direction:column;padding:20px;z-index:100;
@@ -40,27 +38,29 @@ header{position:sticky;top:0;z-index:99;background:#fff;box-shadow:0 6px 18px rg
 .mobile-menu a, .mobile-menu button{
   margin-bottom:14px;font-weight:600;text-decoration:none;color:#0e2a33;text-align:left;font-size:1.1rem;
 }
-.mobile-menu button.lang-btn{background:var(--main);color:#fff;padding:8px 12px;border-radius:12px;align-self: flex-start;}
 .hidden{display:none !important;}
 
-/* Hero Section */
+/* Hero */
 .hero{position:relative;min-height:30vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:#000;overflow: hidden;}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity: 0.6;}
 .hero-content{position:relative; z-index: 2; max-width:900px;padding:20px;}
 
-/* FAQ Styling */
+/* FAQ Content */
 section{max-width:900px;margin:auto;padding:60px 20px;}
-.faq-header{text-align:center; margin-bottom: 50px;}
 .faq-item{background:var(--card);padding:25px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;cursor:pointer;transition: 0.3s;}
-.faq-item:hover{transform: translateY(-2px);}
 .faq-question{margin:0;color:var(--main);font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;font-weight: 700;}
-.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;animation: fadeIn 0.4s ease;}
+.faq-answer{margin-top:15px;display:none;border-top:1px solid #eee;padding-top:15px;color:#555;}
 
 .cta-box{text-align:center; margin-top: 60px; padding: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow);}
-.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;}
+.btn{display:inline-block;background:var(--main);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;transition:.3s;cursor:pointer;border:none;}
 .btn:hover{background:#0096a6; transform: scale(1.05);}
 
-@keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+/* Floating WeChat & Popup */
+.floating-wechat{position:fixed;bottom:25px;right:25px;z-index:999;cursor:pointer;transition:0.3s;}
+.floating-wechat img{width:65px;height:65px;border-radius:16px;box-shadow:var(--shadow);}
+.wechat-popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:1000;display:none;}
+.wechat-box{background:#fff;padding:35px;border-radius:24px;text-align:center;max-width:350px;}
+.wechat-box img{width:100%;max-width:220px;border-radius:16px;margin-bottom:15px;}
 
 @media(max-width:992px){
   .nav-links{display:none;}
@@ -96,7 +96,7 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
     <a href="about.html">关于 / About</a>
     <a href="faq.html" class="active">FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧 中英切换</button>
+    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
@@ -105,8 +105,8 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
   <div class="hero-content">
     <h1 class="cn">常见问题解答</h1>
     <h1 class="en hidden">Frequently Asked Questions</h1>
-    <p class="cn">透明、专业、贴心的行程说明</p>
-    <p class="en hidden">Professional guidance for your Semporna journey</p>
+    <p class="cn">开启您的仙本那专业潜水之旅</p>
+    <p class="en hidden">Start your professional Semporna journey</p>
   </div>
 </section>
 
@@ -118,63 +118,29 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
       <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">仙本那全年适合潜水。最佳天气通常在 3月至 10月。11月至 2月会有偶发降雨，但不影响出海。</p>
-      <p class="en hidden">Diving is possible year-round. Best weather is usually March to October. Brief rains in Nov-Feb rarely affect boat trips.</p>
+      <p class="cn">3月至10月是旱季，水下能见度最高。11月至2月偶有降雨，但不影响行程。</p>
+      <p class="en hidden">March to October offers best visibility. Nov to Feb has occasional rain but trips still run.</p>
     </div>
   </div>
 
   <div class="faq-item" onclick="toggleFAQ(this)">
     <div class="faq-question">
-      <span class="cn">2. 考证或行程需要提前多久预订？</span>
-      <span class="en hidden">2. How far in advance should I book?</span> 
+      <span class="cn">2. 需要提前多久预订？</span>
+      <span class="en hidden">2. How early should I book?</span> 
       <span>+</span>
     </div>
     <div class="faq-answer">
-      <p class="cn">特别是诗巴丹 (Sipadan) 名额，建议提前 1-2 个月预订。普通考证和跳岛建议提前 2 周。</p>
-      <p class="en hidden">For Sipadan permits, book 1-2 months ahead. For PADI courses and island hopping, 2 weeks is usually sufficient.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question">
-      <span class="cn">3. 潜水后多久可以坐飞机？</span>
-      <span class="en hidden">3. How long after diving can I fly?</span> 
-      <span>+</span>
-    </div>
-    <div class="faq-answer">
-      <p class="cn">单次潜水后建议 12 小时内不要飞行；多次潜水建议 18-24 小时内不要飞行。请合理规划离境机票。</p>
-      <p class="en hidden">Wait 12 hours after a single dive and 18-24 hours after multiple dives before flying. Plan your return flights accordingly.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question">
-      <span class="cn">4. 如何从机场到达仙本那？</span>
-      <span class="en hidden">4. How do I get to Semporna from the airport?</span> 
-      <span>+</span>
-    </div>
-    <div class="faq-answer">
-      <p class="cn">您需要飞往斗湖 (Tawau, TWU) 机场。从斗湖机场乘车到仙本那镇约 70-90 分钟。我们可以为您安排接机。</p>
-      <p class="en hidden">Fly into Tawau (TWU). It is a 70-90 minute car ride to Semporna town. We can arrange transfers for you.</p>
-    </div>
-  </div>
-
-  <div class="faq-item" onclick="toggleFAQ(this)">
-    <div class="faq-question">
-      <span class="cn">5. 不会游泳可以参加体验潜水 (DSD) 吗？</span>
-      <span class="en hidden">5. Can I join DSD if I can't swim?</span> 
-      <span>+</span>
-    </div>
-    <div class="faq-answer">
-      <p class="cn">可以！全程会有教练 1对1 或 1对2 带领，您只需放松呼吸，在教练帮助下欣赏海底美景。</p>
-      <p class="en hidden">Yes! You will be guided 1-on-1 or 1-on-2 by an instructor. Just focus on breathing and enjoying the underwater view.</p>
+      <p class="cn">诗巴丹建议提前1-2个月。考证建议提前2-3周。</p>
+      <p class="en hidden">1-2 months for Sipadan. 2-3 weeks for PADI courses.</p>
     </div>
   </div>
 
   <div class="cta-box">
     <h3 class="cn">还有更多疑问？</h3>
     <h3 class="en hidden">Have more questions?</h3>
-    <a href="contact.html" class="btn">立即咨询教练 / Contact Coach</a>
+    <p class="cn">点击下方按钮直接微信咨询教练</p>
+    <p class="en hidden">Click below to chat with the coach on WeChat</p>
+    <button onclick="openWechat()" class="btn">立即咨询教练 / Contact Coach</button>
   </div>
 </section>
 
@@ -182,13 +148,25 @@ section{max-width:900px;margin:auto;padding:60px 20px;}
   <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p class="cn">扫码添加微信获取详细解答</p>
+    <p class="en hidden">Scan to add WeChat for details</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>ID: Deso_89</strong><br>
+    <button onclick="closeWechat()" class="btn" style="width:100%; margin-top:15px;">关闭 / Close</button>
+  </div>
+</div>
+
 <script>
-// Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', ()=>{ mobileMenu.classList.toggle('hidden'); });
 
-// FAQ Toggle
 function toggleFAQ(el){
   const ans = el.querySelector('.faq-answer');
   const isVisible = ans.style.display === 'block';
@@ -196,12 +174,16 @@ function toggleFAQ(el){
   if(!isVisible) ans.style.display = 'block';
 }
 
-// Language Logic
 function toggleLang() {
   document.querySelectorAll('.cn, .en').forEach(e=>e.classList.toggle('hidden'));
 }
 document.getElementById('langToggleDesktop').addEventListener('click', toggleLang);
 document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+
+// WeChat Logic
+const popup = document.getElementById('wechatPopup');
+function openWechat(){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
+function closeWechat(){ popup.style.display='none'; document.body.style.overflow=''; }
 </script>
 
 </body>
