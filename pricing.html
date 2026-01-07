@@ -6,7 +6,6 @@
     <title>价格详情 | Semporna Pricing - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-Specific Styles */
         section { max-width: 1100px; margin: auto; padding: 40px 20px; }
         h2 { margin: 40px auto 20px; color: var(--main); border-left: 5px solid var(--main); padding-left: 15px; font-size: 1.5rem; }
         
@@ -18,11 +17,10 @@
         }
         .tab-btn.active, .tab-btn:hover { background: var(--main); color: #fff; }
 
-        /* Tab Content Control */
-        .price-content { display: none; animation: fadeUp 0.5s ease; }
+        .price-content { display: none; animation: fadeIn 0.5s ease; }
         .price-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Tables - Keeping your exact design */
         table {
             width: 100%; border-collapse: collapse; margin-bottom: 30px;
             background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
@@ -33,8 +31,6 @@
 
         .surcharge-box { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px dashed var(--main); margin-bottom: 40px; }
         .surcharge-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-        .surcharge-item:last-child { border-bottom: none; }
-        
         .btn-pricing { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 28px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; margin-top: 20px; }
     </style>
 </head>
@@ -47,15 +43,26 @@
             <a href="index.html">首页 / Home</a>
             <a href="pricing.html" class="active">价格 / Pricing</a>
             <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="island-hopping.html">跳岛 / Island Hopping</a>
             <a href="gallery.html">相册 / Gallery</a>
             <a href="reviews.html">评价 / Reviews</a>
             <a href="about.html">关于 / About</a>
-            <a href="faq.html">常见问题 / FAQ</a>
             <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
         <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
+    <div class="mobile-menu hidden" id="mobileMenu">
+        <a href="index.html">首页 / Home</a>
+        <a href="pricing.html" class="active">价格 / Pricing</a>
+        <a href="accommodation.html">住宿 / Accommodation</a>
+        <a href="island-hopping.html">跳岛 / Island Hopping</a>
+        <a href="gallery.html">相册 / Gallery</a>
+        <a href="reviews.html">评价 / Reviews</a>
+        <a href="about.html">关于 / About</a>
+        <a href="contact.html">联系 / Contact</a>
+        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
+    </div>
 </header>
 
 <section class="hero">
@@ -63,97 +70,97 @@
     <div class="hero-content">
         <h1 class="cn">2026 仙本那行程价格表</h1>
         <h1 class="en hidden">2026 Semporna Price List</h1>
-        <p class="cn">透明定价 · 专业教练 · 包含餐饮住宿</p>
     </div>
 </section>
 
 <section>
     <div class="price-tabs">
-        <button class="tab-btn active" onclick="switchTab('diving')">
-            <span class="cn">潜水课程</span><span class="en hidden">Diving</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab('hopping')">
-            <span class="cn">跳岛路线</span><span class="en hidden">Island Hopping</span>
-        </button>
-        <button class="tab-btn" onclick="switchTab('transport')">
-            <span class="cn">接送服务</span><span class="en hidden">Transport</span>
-        </button>
+        <button class="tab-btn active" onclick="switchTab('diving')">潜水行程 / Diving</button>
+        <button class="tab-btn" onclick="switchTab('hopping')">跳岛游 / Island Hopping</button>
+        <button class="tab-btn" onclick="switchTab('transport')">接送 / Transport</button>
     </div>
 
     <div id="diving" class="price-content active">
         <h2 class="cn">DSD 深潜体验 (无证)</h2>
-        <h2 class="en hidden">DSD Experience (No License)</h2>
         <table>
-            <thead><tr><th class="cn">项目</th><th class="en hidden">Package</th><th>价格 / Price</th></tr></thead>
+            <thead><tr><th class="cn">项目</th><th>价格 / Price</th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">1天/2次深潜 (Bum Bum岛)</span><span class="en hidden">1N/2 Dives (Bum Bum)</span></td><td>￥1,006.89</td></tr>
-                <tr><td><span class="cn">1天/3次深潜日游</span><span class="en hidden">1N/3 Dives Day Trip</span></td><td>￥1,179.01</td></tr>
-                <tr><td><span class="cn">1天/3次深潜 + 浮潜与徒步 (敦沙卡兰)</span><span class="en hidden">1N/3 Dives + TSMP Hike</span></td><td>￥1,609.31</td></tr>
+                <tr><td><span class="cn">1天/2次深潜 (Bum Bum岛)</span></td><td>￥1,006.89</td></tr>
+                <tr><td><span class="cn">1天/3次深潜日游</span></td><td>￥1,179.01</td></tr>
+                <tr><td><span class="cn">1天/3次深潜 + 浮潜与徒步 (敦沙卡兰)</span></td><td>￥1,609.31</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="cn">Fun Dive 娱乐潜水 (持证)</h2>
+        <table>
+            <thead><tr><th class="cn">项目</th><th>价格 / Price</th></tr></thead>
+            <tbody onclick="openWechat()">
+                <tr><td><span class="cn">1天 / 6次娱乐潜水</span></td><td>￥1,543.90</td></tr>
+                <tr><td><span class="cn">2天 / 9次娱乐潜水</span></td><td>￥2,483.67</td></tr>
+                <tr><td><span class="cn">2天 / 9次娱乐潜水 (1天诗巴丹)</span></td><td>￥3,583.50</td></tr>
+                <tr><td><span class="cn">3天 / 12次娱乐潜水</span></td><td>￥3,423.43</td></tr>
+                <tr><td><span class="cn">3天 / 12次娱乐潜水 (1天诗巴丹)</span></td><td>￥4,523.27</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水</span></td><td>￥4,363.20</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水 (1天诗巴丹)</span></td><td>￥5,463.03</td></tr>
+                <tr><td><span class="cn">4天 / 15次娱乐潜水 (2天诗巴丹+3次其他)</span></td><td>￥6,562.87</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水</span></td><td>￥5,302.96</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水 (1天诗巴丹+4次其他)</span></td><td>￥6,402.80</td></tr>
+                <tr><td><span class="cn">5天 / 18次娱乐潜水 (2天诗巴丹+4次其他)</span></td><td>￥7,502.64</td></tr>
             </tbody>
         </table>
 
         <h2 class="cn">PADI 潜水课程</h2>
-        <h2 class="en hidden">PADI Courses</h2>
         <table>
-            <thead><tr><th class="cn">课程</th><th class="en hidden">Course</th><th>价格 / Price</th></tr></thead>
+            <thead><tr><th class="cn">课程</th><th>价格 / Price</th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">2天 / PADI OW 初级潜水员课程</span><span class="en hidden">2N / PADI OW Course</span></td><td>￥3,149.76</td></tr>
-                <tr><td><span class="cn">2天 / PADI AOW 进阶 + 3次娱乐潜水</span><span class="en hidden">2N / PADI AOW + 3 Fun Dives</span></td><td>￥3,289.18</td></tr>
+                <tr><td><span class="cn">2天 / PADI OW 初级潜水员课程</span></td><td>￥3,149.76</td></tr>
+                <tr><td><span class="cn">3天 / PADI OW初级 + 3次娱乐潜水</span></td><td>￥4,089.53</td></tr>
+                <tr><td><span class="cn">2天 / PADI AOW进阶 + 3次娱乐潜水 (共8潜)</span></td><td>￥3,289.18</td></tr>
+                <tr><td><span class="cn">2天 / PADI AOW进阶 + 诗巴丹 (共9潜)</span></td><td>￥4,526.71</td></tr>
+                <tr><td><span class="cn">3天 / PADI 救援潜水员 + EFR紧急第一反应</span></td><td>￥4,173.87</td></tr>
+                <tr><td><span class="cn">6天5夜 OW + AOW 连报优惠</span></td><td>￥6,438.95</td></tr>
             </tbody>
         </table>
     </div>
 
     <div id="hopping" class="price-content">
-        <h2 class="cn">跳岛游路线报价 (RMB)</h2>
-        <p class="cn">我们为您提供三条经典跳岛路线，价格已包含 Agent Rate 优惠。</p>
-        <div style="background: #fff; padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
-            <p class="cn">点击下方按钮在新标签页查看完整跳岛游价格详情：</p>
-            <a href="island-hopping.html" target="_blank" class="btn-pricing">在新标签页打开详情 / View Route Details</a>
+        <h2 class="cn">跳岛游详情</h2>
+        <div style="background:#fff; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center;">
+            <p class="cn">查看详细的 A/B/C 路线 RMB 报价表：</p>
+            <a href="island-hopping.html" target="_blank" class="btn-pricing">在新标签页打开详情 / View Island Hopping</a>
         </div>
     </div>
 
     <div id="transport" class="price-content">
         <h2 class="cn">斗湖机场接送服务</h2>
-        <h2 class="en hidden">Airport Transfers</h2>
         <table>
-            <thead><tr><th class="cn">服务项目</th><th class="en hidden">Service</th><th>价格 / Price</th></tr></thead>
+            <thead><tr><th class="cn">项目</th><th>价格 / Price</th></tr></thead>
             <tbody onclick="openWechat()">
-                <tr><td><span class="cn">斗湖机场拼车接送 (每人单程)</span><span class="en hidden">Shared Van (One Way)</span></td><td>RM 25</td></tr>
-                <tr><td><span class="cn">包车接送 (4人轿车)</span><span class="en hidden">Private Car (4 Seats)</span></td><td>RM 100</td></tr>
-                <tr><td><span class="cn">商务包车 (9人面包车)</span><span class="en hidden">Private Van (9 Seats)</span></td><td>RM 180</td></tr>
+                <tr><td><span class="cn">机场拼车 (单程/人)</span></td><td>RM 25</td></tr>
+                <tr><td><span class="cn">私家包车 (4人座)</span></td><td>RM 100</td></tr>
+                <tr><td><span class="cn">商务包车 (9人座)</span></td><td>RM 180</td></tr>
             </tbody>
         </table>
     </div>
 
     <h2 class="cn">其他附加费用</h2>
     <div class="surcharge-box">
-        <div class="surcharge-item">
-            <span><strong class="cn">7月 - 9月 旺季附加费</strong></span>
-            <span>RM 40 <small>/ night / person</small></span>
-        </div>
-        <div class="surcharge-item">
-            <span><strong class="cn">单人房附加费</strong></span>
-            <span>RM 135 <small>/ night</small></span>
-        </div>
+        <div class="surcharge-item"><span><strong class="cn">7-9月 旺季附加费</strong></span><span>RM 40 <small>/人/晚</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">额外续住 (每晚)</strong></span><span>RM 195 <small>/人</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">非潜水员价格</strong></span><span>RM 195 <small>/晚</small></span></div>
+        <div class="surcharge-item"><span><strong class="cn">单人房附加费</strong></span><span>RM 135 <small>/晚</small></span></div>
     </div>
 
-    <div style="text-align:center;">
-        <button onclick="openWechat()" class="btn-pricing">立即微信咨询详情 / Add WeChat</button>
-    </div>
+    <div style="text-align:center;"><button onclick="openWechat()" class="btn-pricing">立即咨询 / Contact</button></div>
 </section>
 
-<footer style="text-align:center; padding:40px 20px; background: #eee;">
-    <p>© Semporna Tours - Coach Deso_89</p>
-</footer>
+<footer style="text-align:center; padding:40px 20px; background: #eee;"><p>© Semporna Tours - Coach Deso_89</p></footer>
 
-<div class="floating-wechat" onclick="openWechat()">
-    <img src="wechat-icon.png" alt="WeChat">
-</div>
-
+<div class="floating-wechat" onclick="openWechat()"><img src="wechat-icon.png" alt="WeChat"></div>
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信获取行程建议</p>
-        <img src="wechat-qr.jpg" alt="WeChat QR">
+        <img src="wechat-qr.jpg" alt="QR">
         <br><strong>教练 Deso_89</strong><br>
         <button onclick="closeWechat()">关闭 / Close</button>
     </div>
