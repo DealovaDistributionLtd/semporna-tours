@@ -1,6 +1,6 @@
-/* main.js */
+/* main.js - MASTER LOGIC */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile menu toggle
+    // 1. Mobile Menu Toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     if (hamburger && mobileMenu) {
@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Language switch logic
-    const langBtnDesktop = document.getElementById('langToggleDesktop');
-    const langBtnMobile = document.getElementById('langToggleMobile');
-    const toggleFunc = () => {
-        document.querySelectorAll('.cn, .en').forEach(e => e.classList.toggle('hidden'));
-    };
-
-    if (langBtnDesktop) langBtnDesktop.addEventListener('click', toggleFunc);
-    if (langBtnMobile) langBtnMobile.addEventListener('click', toggleFunc);
+    // 2. Language Switch
+    const langBtns = [document.getElementById('langToggleDesktop'), document.getElementById('langToggleMobile')];
+    langBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cn, .en').forEach(el => el.classList.toggle('hidden'));
+            });
+        }
+    });
 });
 
-// 3. WeChat Popup Functions (Global)
+// 3. Global WeChat Functions
 function openWechat() {
     const popup = document.getElementById('wechatPopup');
     if (popup) {
