@@ -2,42 +2,38 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>联系 / Contact</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="language-toggle" id="langToggle">🇨🇳 / 🇬🇧</div>
+<!-- HEADER -->
 
-<header>
-  <nav>
-    <b>联系 / Contact</b>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="pricing.html">Pricing</a>
-    </div>
-  </nav>
-</header>
-
-<section class="grid">
-  <div class="card">
-    <h3>WeChat</h3>
-    <p>ID: <strong>Deso_89</strong></p>
-    <img src="images/wechat-qr.jpg" style="width:100%;border-radius:16px">
-  </div>
-
-  <div class="card">
-    <h3>Email</h3>
-    <p>info@semponratours.com</p>
-  </div>
-
-  <div class="card">
-    <h3>Location</h3>
-    <p>Semporna, Sabah, Malaysia</p>
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
+  <div class="hero-content">
+    <h1 class="cn">联系我们</h1>
+    <h1 class="en hidden">Contact Us</h1>
   </div>
 </section>
 
-<script src="js/main.js"></script>
+<section class="grid">
+  <div class="card">
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button class="btn">Send</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <img src="images/map.jpg" alt="Map" style="width:100%;border-radius:16px;">
+  </div>
+</section>
+
+<!-- WECHAT -->
+
 </body>
 </html>
