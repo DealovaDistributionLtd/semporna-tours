@@ -262,6 +262,7 @@
 
 <script src="main.js"></script>
 <script>
+    // 1. Keep your working switchTab function exactly as it is
     function switchTab(tabId) {
         document.querySelectorAll('.price-content').forEach(c => c.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
@@ -270,6 +271,22 @@
         else if(tabId === 'hopping') document.getElementById('tab-hopping-btn').classList.add('active');
         else if(tabId === 'transport') document.getElementById('tab-transport-btn').classList.add('active');
     }
+
+    // 2. Add this logic to "listen" for the #hopping from the home page
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the hash from the URL (e.g., #hopping)
+        const hash = window.location.hash.replace('#', '');
+        
+        // If it matches one of your tabs, trigger the switch automatically
+        if (hash === 'hopping' || hash === 'transport' || hash === 'diving') {
+            switchTab(hash);
+            
+            // Optional: Smoothly scroll down so the user sees the table immediately
+            setTimeout(() => {
+                document.querySelector('.price-tabs').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    });
 </script>
 </body>
 </html>
