@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>价格 / Pricing</title>
+<title>价格 / Pricing | Semporna Tours</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- HEADER / NAV (same for all pages) -->
 <header>
   <nav class="nav-container">
     <b class="logo">Semporna Tours</b>
-
-    <!-- Desktop Menu -->
     <div class="nav-links">
       <a href="index.html">首页 / Home</a>
       <a href="pricing.html">价格 / Pricing</a>
@@ -24,12 +23,8 @@
       <a href="contact.html">联系 / Contact</a>
       <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
     </div>
-
-    <!-- Mobile Hamburger -->
     <button class="hamburger" id="hamburger">&#9776;</button>
   </nav>
-
-  <!-- Mobile Menu -->
   <div class="mobile-menu hidden" id="mobileMenu">
     <a href="index.html">首页 / Home</a>
     <a href="pricing.html">价格 / Pricing</a>
@@ -39,48 +34,78 @@
     <a href="about.html">关于我们 / About</a>
     <a href="faq.html">常见问题 / FAQ</a>
     <a href="contact.html">联系 / Contact</a>
-
-    <!-- Language toggle always LAST -->
     <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
   </div>
 </header>
 
+<section>
+  <h2 class="cn">行程价格</h2>
+  <h2 class="en hidden">Tour Pricing</h2>
 
-<section class="hero">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  <div class="hero-content">
-    <h1 class="cn">行程价格</h1>
-    <h1 class="en hidden">Tour Pricing</h1>
-    <p class="cn">透明定价，无隐藏费用</p>
-    <p class="en hidden">Clear pricing, no hidden costs</p>
+  <div class="grid">
+    <div class="card">
+      <h3 class="cn">跳岛半日游</h3>
+      <h3 class="en hidden">Half-Day Island Hopping</h3>
+      <ul class="cn">
+        <li>成人：¥200/人</li>
+        <li>儿童：¥120/人</li>
+        <li>包含：交通、浮潜装备、饮用水</li>
+      </ul>
+      <ul class="en hidden">
+        <li>Adult: $45/person</li>
+        <li>Child: $25/person</li>
+        <li>Includes: Transport, snorkel gear, drinking water</li>
+      </ul>
+      <a href="contact.html" class="btn">立即预订 / Book Now</a>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">全日跳岛游</h3>
+      <h3 class="en hidden">Full-Day Island Hopping</h3>
+      <ul class="cn">
+        <li>成人：¥350/人</li>
+        <li>儿童：¥200/人</li>
+        <li>包含午餐、交通、浮潜装备</li>
+      </ul>
+      <ul class="en hidden">
+        <li>Adult: $80/person</li>
+        <li>Child: $45/person</li>
+        <li>Includes: Lunch, transport, snorkel gear</li>
+      </ul>
+      <a href="contact.html" class="btn">立即预订 / Book Now</a>
+    </div>
+
+    <div class="card">
+      <h3 class="cn">潜水体验</h3>
+      <h3 class="en hidden">Scuba Diving Experience</h3>
+      <ul class="cn">
+        <li>体验潜水：¥400/人</li>
+        <li>持证潜水：¥350/潜水</li>
+        <li>包含：装备、教练、保险</li>
+      </ul>
+      <ul class="en hidden">
+        <li>Discover Dive: $90/person</li>
+        <li>Certified Dive: $80/dive</li>
+        <li>Includes: Gear, instructor, insurance</li>
+      </ul>
+      <a href="contact.html" class="btn">立即预订 / Book Now</a>
+    </div>
   </div>
 </section>
 
-<section>
-  <table class="pricing-table">
-    <tr>
-      <th class="cn">项目</th>
-      <th class="en hidden">Item</th>
-      <th class="cn">价格</th>
-      <th class="en hidden">Price</th>
-    </tr>
-    <tr>
-      <td class="cn">跳岛游</td>
-      <td class="en hidden">Island Hopping</td>
-      <td>RM 250</td>
-      <td>RM 250</td>
-    </tr>
-    <tr>
-      <td class="cn">体验潜水</td>
-      <td class="en hidden">Discover Scuba</td>
-      <td>RM 550</td>
-      <td>RM 550</td>
-    </tr>
-  </table>
-</section>
+<div class="floating-wechat" onclick="openWechat()">
+  <img src="wechat-icon.png" alt="WeChat">
+</div>
 
-<!-- WECHAT -->
-<!-- paste floating wechat + popup -->
+<div id="wechatPopup" class="wechat-popup">
+  <div class="wechat-box">
+    <p>扫码添加微信咨询 / Add WeChat</p>
+    <img src="wechat-qr.jpg" alt="WeChat QR">
+    <strong>Deso_89</strong><br>
+    <button onclick="closeWechat()">关闭 / Close</button>
+  </div>
+</div>
 
+<script src="js/main.js" defer></script>
 </body>
 </html>
