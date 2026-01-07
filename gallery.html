@@ -6,7 +6,6 @@
     <title>相册实拍 | Gallery - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-Specific Gallery Styles */
         .filter-container { text-align:center; padding:40px 20px 20px; }
         .filter-btn {
             background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 20px; 
@@ -14,7 +13,6 @@
         }
         .filter-btn.active, .filter-btn:hover { background:var(--main); color:#fff; }
 
-        /* Photo Grid (Masonry Style) */
         .gallery-grid {
             max-width: 1200px; margin: auto; padding: 0 20px 80px;
             columns: 3 250px; column-gap: 20px;
@@ -27,18 +25,15 @@
         .photo-item:hover { transform: scale(1.02); }
         .photo-item img { width: 100%; height: auto; display: block; }
 
-        /* Lightbox for Zooming */
         .lightbox {
             position: fixed; inset: 0; background: rgba(0,0,0,0.9);
             display: none; justify-content: center; align-items: center;
             z-index: 2000; padding: 20px;
         }
-        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; }
         .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
 
-        @media(max-width:992px) {
-            .gallery-grid { columns: 2 200px; }
-        }
+        @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
     </style>
 </head>
 <body>
@@ -60,22 +55,10 @@
         </div>
         <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
-    <div class="mobile-menu hidden" id="mobileMenu">
-        <a href="index.html">首页 / Home</a>
-        <a href="pricing.html">价格 / Pricing</a>
-        <a href="accommodation.html">住宿 / Accommodation</a>
-        <a href="island-hopping.html">跳岛 / Island Hopping</a>
-        <a href="gallery.html" class="active">相册 / Gallery</a>
-        <a href="reviews.html">评价 / Reviews</a>
-        <a href="about.html">关于 / About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">联系 / Contact</a>
-        <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-    </div>
 </header>
 
 <section class="hero">
-    <img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Semporna Gallery">
+    <img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_0" alt="Semporna Gallery">
     <div class="hero-content">
         <h1 class="cn">每一张照片，都是真实景色</h1>
         <h1 class="en hidden">Real Semporna, Through Our Lens</h1>
@@ -100,49 +83,60 @@
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://mediaim.expedia.com/destination/1/1fae69e907143c28cc0ea9771f67f041.jpg" alt="Diving"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Bohey Dulang"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://mediaim.expedia.com/destination/1/1a7a27e1c53e3f8e6786e7f02b6f92f7.jpg" alt="Sea Life"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9392f1f5019394dd1d654120_449246.jpg" alt="Room 1"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://mediaim.expedia.com/destination/2/027ab3d34509b50dfc6d7f7995e8bbf7.jpg" alt="Boat"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000" alt="Scuba"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="8a80818a9418d64501941b6475e034a0_144557.jpg" alt="Room 2"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1589308454676-429613589c37?q=80&w=1000" alt="Island View"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_0" alt="Diving 1"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_1" alt="Diving 2"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_2" alt="Diving 3"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_3" alt="Diving 4"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_4" alt="Diving 5"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_5" alt="Diving 6"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_6" alt="Diving 7"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_7" alt="Diving 8"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_8" alt="Diving 9"></div>
+    <div class="photo-item diving" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10107118078682915492_9" alt="Diving 10"></div>
+
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_1" alt="Island 1"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_2" alt="Island 2"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_3" alt="Island 3"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_4" alt="Island 4"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_5" alt="Island 5"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_6" alt="Island 6"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_7" alt="Island 7"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_8" alt="Island 8"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/10891128641690614506_9" alt="Island 9"></div>
+    <div class="photo-item islands" onclick="openLightbox(this)"><img src="https://www.mysabah.com/wordpress/wp-content/uploads/2015/07/bohey-dulang.jpg" alt="Island 10"></div>
+
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_0" alt="Stay 1"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_1" alt="Stay 2"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_2" alt="Stay 3"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_3" alt="Stay 4"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_4" alt="Stay 5"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_5" alt="Stay 6"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_6" alt="Stay 7"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_7" alt="Stay 8"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_8" alt="Stay 9"></div>
+    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="http://googleusercontent.com/image_collection/image_retrieval/6222279380625495826_9" alt="Stay 10"></div>
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Zoomed View">
+    <img id="lightbox-img" src="">
 </div>
-
-<footer style="text-align:center; padding:40px 20px; background: #eee;">
-    <p>© Semporna Tours - Coach Deso_89</p>
-</footer>
-
-<div class="floating-wechat" onclick="openWechat()"><img src="wechat-icon.png" alt="WeChat"></div>
 
 <script src="main.js"></script>
 <script>
-    // 1. Filter Logic
     function filterGallery(category, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const items = document.querySelectorAll('.photo-item');
         items.forEach(item => {
-            if (category === 'all' || item.classList.contains(category)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
+            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
         });
     }
 
-    // 2. Lightbox Logic
     function openLightbox(el) {
         const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = el.querySelector('img').src;
+        const img = document.getElementById('lightbox-img');
+        img.src = el.querySelector('img').src;
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -151,6 +145,15 @@
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = '';
     }
+
+    // Initialize filter from URL hash if present (e.g., gallery.html#diving)
+    window.addEventListener('load', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            const btn = document.querySelector(`.filter-btn[onclick*="${hash}"]`);
+            if (btn) filterGallery(hash, btn);
+        }
+    });
 </script>
 </body>
 </html>
