@@ -1,159 +1,156 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>客户评价 | Reviews - Semporna Tours</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  /* Page-Specific Styles for Review Cards */
-  section { max-width: 1100px; margin: auto; padding: 40px 20px; }
-  
-  /* Standardized Hero (Matches other pages) */
-  .hero { 
-      position: relative; 
-      min-height: 60vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center; 
-      color: #fff; 
-      background: #000; 
-      overflow: hidden; 
-  }
-  .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
-      z-index: 2;
-  }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 20px; }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>客户评价 | Reviews - Semporna Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        
+        .grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .card { 
+            background: var(--card); 
+            padding: 30px; 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow); 
+            transition: .3s; 
+            display: flex; 
+            flex-direction: column; 
+            border-top: 4px solid var(--main);
+        }
+        .card:hover { transform: translateY(-5px); }
+        .stars { color: #ffcc00; font-size: 1.1rem; margin-bottom: 12px; }
+        .card p { line-height: 1.6; color: #444; margin-bottom: 20px; flex-grow: 1; font-size: 0.95rem; }
+        .reviewer-info { display: flex; align-items: center; gap: 10px; }
+        .reviewer-info strong { color: #333; font-size: 0.9rem; }
+        .platform-tag { font-size: 0.75rem; color: #999; border: 1px solid #ddd; padding: 2px 8px; border-radius: 4px; }
+        
+        .btn-contact { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 14px 32px; border-radius: 30px; border: none; cursor: pointer; text-decoration: none; transition: 0.3s; }
+        .btn-contact:hover { opacity: 0.9; transform: scale(1.05); }
 
-  .grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .card { background: var(--card); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); transition: .3s; display: flex; flex-direction: column; }
-  .card:hover { transform: translateY(-5px); }
-  .stars { color: #ffcc00; font-size: 1.2rem; margin-bottom: 10px; }
-  .card p { font-style: italic; color: #444; margin-bottom: 15px; flex-grow: 1; }
-  .card strong { color: var(--main); font-size: 1rem; }
-  
-  .btn-contact { display: inline-block; background: var(--main); color: #fff; font-weight: 700; padding: 12px 24px; border-radius: 30px; transition: .3s; text-align: center; border: none; cursor: pointer; text-decoration: none; }
-</style>
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
 
 <header>
-  <nav class="nav-container">
-    <b class="logo">Semporna Tours</b>
-    <div class="nav-links">
-      <a href="index.html">首页 / Home</a>
-      <a href="pricing.html">价格 / Pricing</a>
-      <a href="accommodation.html">住宿 / Accommodation</a>
-      <a href="gallery.html">相册 / Gallery</a>
-      <a href="reviews.html" class="active">评价 / Reviews</a>
-      <a href="about.html">关于 / About</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">联系 / Contact</a>
-      <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
-    </div>
-    <button class="hamburger" id="hamburger">&#9776;</button>
-  </nav>
-
-  <div class="mobile-menu hidden" id="mobileMenu">
-    <a href="index.html">首页 / Home</a>
-    <a href="pricing.html">价格 / Pricing</a>
-    <a href="accommodation.html">住宿 / Accommodation</a>
-    <a href="gallery.html">相册 / Gallery</a>
-    <a href="reviews.html" class="active">评价 / Reviews</a>
-    <a href="about.html">关于 / About</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">联系 / Contact</a>
-    <button id="langToggleMobile" class="lang-btn">🇨🇳 / 🇬🇧</button>
-  </div>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-box">
+            <img src="images/logo.png" alt="Semporna Tours" class="site-logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">首页 / Home</a>
+            <a href="pricing.html">价格 / Pricing</a>
+            <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="gallery.html">相册 / Gallery</a>
+            <a href="reviews.html" class="active">评价 / Reviews</a>
+            <a href="about.html">关于 / About</a>
+            <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
+        </div>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </nav>
 </header>
 
 <section class="hero">
-  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200" alt="Reviews Hero">
-  <div class="hero-content">
-    <h1 class="cn">来自真实的旅行心声</h1>
-    <h1 class="en hidden">Voices from Real Travelers</h1>
-    <p class="cn">每一份好评，都是对我们专业服务的肯定</p>
-    <p class="en hidden">Every review is a testament to our professional service</p>
-  </div>
+    <img src="images/islands/dji-20241120095919-0020-d_orig.jpg" alt="Semporna Reviews">
+    <div class="hero-content">
+        <h1 class="cn">真实旅行体验</h1>
+        <h1 class="en hidden">Real Guest Experiences</h1>
+        <p class="cn">来自小红书与抖音伙伴们的真实反馈</p>
+        <p class="en hidden">Authentic feedback from our community on social media</p>
+    </div>
 </section>
 
 <section>
-  <div class="grid">
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“服务非常专业，潜水体验超棒！Deso 教练很有耐心，第一次深潜完全不紧张。”</p>
-      <p class="en hidden">"Amazing service and diving experience! Coach Deso was so patient, I wasn't nervous at all for my first dive."</p>
-      <strong>- 李小姐 / Miss Li</strong>
+    <div class="grid">
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“纯分享！Deso教练真的超级奶思。我是那种非常怕水的人，教练全程拉着我，一直在耳边鼓励我别紧张。最后成功潜到10米深，看到了超大只的海龟，真的值了！”</p>
+            <p class="en hidden">"Real talk! Coach Deso is so nice. I was terrified of water, but he held my hand and encouraged me the whole time. Finally hit 10m and saw huge turtles. Totally worth it!"</p>
+            <div class="reviewer-info">
+                <strong>@爱吃肉的小丸子</strong>
+                <span class="platform-tag">小红书</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“终于圆了西巴丹的梦。Deso帮我拿到了名额。他的团队很专业，快艇很干净，而且他很会拍照，帮我录了很多很棒的水下视频，已经发抖音啦，大家可以去搜！”</p>
+            <p class="en hidden">"Finally fulfilled my Sipadan dream. Deso secured the permit for me. His team is professional, boat is clean, and he's great at taking underwater videos. Already posted to TikTok!"</p>
+            <div class="reviewer-info">
+                <strong>@DiveWithKelvin</strong>
+                <span class="platform-tag">TikTok</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“带全家来仙本那，最明智的就是找了Deso。他安排的水上屋简直绝美，推窗就是果冻海。没有乱七八糟的购物点，就是纯玩，老人家玩得特别开心。”</p>
+            <p class="en hidden">"Best decision was booking with Deso for our family trip. The overwater chalet he picked was gorgeous. No shopping traps, just pure fun. My parents loved it."</p>
+            <div class="reviewer-info">
+                <strong>@旅行者陈欧文</strong>
+                <span class="platform-tag">小红书</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“对比了好多家，最后选了Deso_89。教练很有安全感，PADI考证过程很严谨但氛围很轻松。下次来刷AOW肯定还找你！”</p>
+            <p class="en hidden">"Compared many shops and picked Deso_89. Felt very safe. The PADI certification was strict but the vibe was relaxed. Will be back for AOW!"</p>
+            <div class="reviewer-info">
+                <strong>@Jasmine_in_Sea</strong>
+                <span class="platform-tag">小红书</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“仙本那跳岛游一定要选小团！Deso安排的船载人不多，完全不用排队等拍照。午餐也准备得很好。避雷那些廉价大团，一定要选这种专业的。”</p>
+            <p class="en hidden">"Go for small groups for island hopping! Deso's boat wasn't crowded, so no waiting for photos. Lunch was great. Avoid cheap big tours, pick a professional one like this."</p>
+            <div class="reviewer-info">
+                <strong>@美食博主阿强</strong>
+                <span class="platform-tag">抖音</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="cn">“教练带我这种潜水小白真的很有耐心，而且他的中文沟通完全没问题。整个体验非常顺利，已经推荐给准备来马布岛的朋友了。”</p>
+            <p class="en hidden">"Coach was so patient with a beginner like me. His Chinese communication is perfect. Smooth experience, already recommended to friends visiting Mabul."</p>
+            <div class="reviewer-info">
+                <strong>@小林不爱熬夜</strong>
+                <span class="platform-tag">小红书</span>
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“小团体体验让我们非常舒适，不会像大团那样赶时间。海景阳台房美哭了！”</p>
-      <p class="en hidden">"Small group made everything very comfortable. No rushing like big tours. The ocean view room was stunning!"</p>
-      <strong>- John D.</strong>
+    <div style="text-align: center; margin-top: 60px;">
+        <p class="cn">想和他们一样开启完美的仙本那之旅吗？</p>
+        <p class="en hidden">Want to start your perfect Semporna trip too?</p>
+        <button class="btn-contact" onclick="openWechat()">
+            <span class="cn">立即咨询 Deso 教练</span>
+            <span class="en hidden">Inquire with Coach Deso</span>
+        </button>
     </div>
-
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“以前总觉得潜水很难，这次带我妈来体验，Deso教练全程一对一带着，老人一点都不害怕。钱花得值！”</p>
-      <p class="en hidden">"I thought diving was hard, but Deso guided my mother 1-on-1 and she wasn't scared. Worth every penny!"</p>
-      <strong>- 成都张女士 / Ms. Zhang</strong>
-    </div>
-
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“住宿环境美丽，水上屋超赞！每天早上醒来就是大海，这就是我梦想的假期。”</p>
-      <p class="en hidden">"Beautiful rooms and overwater house was amazing! Waking up to the sea every morning was a dream."</p>
-      <strong>- 王先生 / Mr. Wang</strong>
-    </div>
-
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“对比了好几家，最后选了Deso。没有购物套路，出海的小船很干净，特别是诗巴丹名额真的靠谱！”</p>
-      <p class="en hidden">"No tourist traps, clean boat, and most importantly, he secured the Sipadan permit for me!"</p>
-      <strong>- 潜水爱好者小王 / Mr. Wang</strong>
-    </div>
-
-    <div class="card">
-      <div class="stars">★★★★★</div>
-      <p class="cn">“诗巴丹的名额帮我拿到了，圆了我的潜水梦。专业的团队，行程安排非常合理。”</p>
-      <p class="en hidden">"They secured my Sipadan permit and fulfilled my diving dream. Perfectly planned itinerary."</p>
-      <strong>- Sarah Chen</strong>
-    </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 50px;">
-    <p class="cn">也想分享您的故事？</p>
-    <p class="en hidden">Want to share your story?</p>
-    <button class="btn-contact" onclick="openWechat()">
-      <span class="cn">立即联系 / Contact Us</span>
-      <span class="en hidden">Contact Now</span>
-    </button>
-  </div>
 </section>
 
 <footer style="text-align:center; padding:40px 20px; background: #eee;">
-  <p>© Semporna Tours - Coach Deso_89</p>
+    <p>© Semporna Tours - Coach Deso_89</p>
 </footer>
 
 <div class="floating-wechat" onclick="openWechat()">
-    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+    <img src="images/wechat-icon.png" alt="WeChat">
 </div>
 
 <div id="wechatPopup" class="wechat-popup">
-  <div class="wechat-box">
-    <p class="cn">扫码添加微信分享您的评价</p>
-    <p class="en hidden">Add WeChat to share your review</p>
-    <img src="images/wechat-qr.jpg" alt="WeChat QR">
-    <br><strong>ID: Deso_89</strong><br>
-    <button onclick="closeWechat()" class="btn-contact" style="width:100%; background:#666; margin-top:10px;">关闭 / Close</button>
-  </div>
+    <div class="wechat-box">
+        <p class="cn">添加微信咨询订位</p>
+        <p class="en hidden">Add WeChat to book your spot</p>
+        <img src="images/wechat-qr.jpg" alt="WeChat QR">
+        <br><strong>ID: Deso_89</strong><br>
+        <button onclick="closeWechat()" class="btn-contact" style="width:100%; background:#666; margin-top:10px;">关闭 / Close</button>
+    </div>
 </div>
 
 <script src="main.js"></script>
