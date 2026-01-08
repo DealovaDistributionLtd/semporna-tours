@@ -1,82 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实拍相册 | Gallery - Semporna Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Restoring the Grid Design */
+        .gallery-grid {
+            max-width: 1200px; margin: auto; padding: 20px;
+            columns: 3 250px; column-gap: 20px;
+        }
+        .photo-item {
+            margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
+            overflow: hidden; box-shadow: var(--shadow); background: #fff;
+            cursor: pointer; transition: 0.3s;
+        }
+        .photo-item:hover { transform: translateY(-5px); }
+        .photo-item img { width: 100%; height: auto; display: block; }
+        
+        .filter-container { text-align:center; padding:30px; }
+        .filter-btn {
+            background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 22px; 
+            border-radius:24px; cursor:pointer; font-weight:700; margin:5px; transition:0.3s;
+        }
+        .filter-btn.active { background:var(--main); color:#fff; }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="nav-container">
+        <a href="index.html" class="logo-box">
+            <img src="images/logo.png" alt="Logo" class="site-logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">首页 / Home</a>
+            <a href="pricing.html">价格 / Pricing</a>
+            <a href="accommodation.html">住宿 / Accommodation</a>
+            <a href="gallery.html" class="active">相册 / Gallery</a>
+            <a href="faq.html">FAQ</a>
+            <button id="langToggleDesktop" class="lang-btn">🇨🇳/🇬🇧</button>
+        </div>
+    </nav>
+</header>
+
+<div class="filter-container">
+    <button class="filter-btn active" onclick="filterGallery('all', this)">全部 / All</button>
+    <button class="filter-btn" onclick="filterGallery('diving', this)">潜水 / Diving</button>
+    <button class="filter-btn" onclick="filterGallery('islands', this)">跳岛 / Islands</button>
+    <button class="filter-btn" onclick="filterGallery('stay', this)">住宿 / Stay</button>
+</div>
+
 <div class="gallery-grid" id="galleryGrid">
     </div>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="">
+</div>
+
+<script src="main.js"></script>
 <script>
-    // 1. EXACT MAPPING OF YOUR GITHUB FILENAMES
+    // 1. Exact mapping of your new folder structure and filenames
     const galleryData = [
-        // DIVING CATEGORY
+        // DIVING FOLDER
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.33.jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (1).jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (2).jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34.jpeg', cat: 'diving' },
 
-        // ISLANDS CATEGORY
+        // ISLANDS FOLDER
         { src: 'images/islands/WhatsApp Image 2025-11-19 at 07.59.51_41227044.jpg', cat: 'islands' },
         { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55 (1).jpeg', cat: 'islands' },
         { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55.jpeg', cat: 'islands' },
-        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56 (1).jpeg', cat: 'islands' },
-        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56 (2).jpeg', cat: 'islands' },
-        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56.jpeg', cat: 'islands' },
         { src: 'images/islands/dji-20241120095919-0020-d_orig.jpg', cat: 'islands' },
 
-        // STAY CATEGORY (The main "Stay" folder)
-        { src: 'images/stay/20250302-104927_orig.jpg', cat: 'rooms' },
-        { src: 'images/stay/20250303-093201_orig.jpg', cat: 'rooms' },
-        { src: 'images/stay/8a80818a9392f1f5019394dd1d65411f_borneo_272191.jpg', cat: 'rooms' },
-        { src: 'images/stay/8a80818a9418d64501941b6475e034a0_144557.jpg', cat: 'rooms' },
-        { src: 'images/stay/dji-20250303073420-0194-d_orig.jpg', cat: 'rooms' },
-        
-        // ACCOMMODATION SUBFOLDERS (Merged into the 'Stay' tab for the gallery)
-        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 1.jpg', cat: 'rooms' },
-        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 2.jpg', cat: 'rooms' },
-        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 3.jpg', cat: 'rooms' }
+        // STAY & ACCOMMODATION FOLDERS
+        { src: 'images/stay/20250302-104927_orig.jpg', cat: 'stay' },
+        { src: 'images/stay/20250303-093201_orig.jpg', cat: 'stay' },
+        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 1.jpg', cat: 'stay' },
+        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 2.jpg', cat: 'stay' },
+        { src: 'images/accommodation/Standard room/8a80818a9a983c42019a9b18356d15bb_300702.jpg', cat: 'stay' }
     ];
 
     const grid = document.getElementById('galleryGrid');
 
-    function loadGallery() {
+    function initGallery() {
         galleryData.forEach(item => {
-            const photoDiv = document.createElement('div');
-            photoDiv.className = `photo-item ${item.cat}`;
-            
-            photoDiv.innerHTML = `
-                <img src="${item.src}" 
-                     loading="lazy" 
-                     onerror="this.parentElement.style.display='none'">
-            `;
-            
-            photoDiv.onclick = () => openLightbox(item.src);
-            grid.appendChild(photoDiv);
+            const div = document.createElement('div');
+            div.className = `photo-item ${item.cat}`;
+            div.innerHTML = `<img src="${item.src}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+            div.onclick = () => openLightbox(item.src);
+            grid.appendChild(div);
         });
     }
 
     function filterGallery(category, btn) {
-        // Update Buttons
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        // Filter Photos
-        const items = document.querySelectorAll('.photo-item');
-        items.forEach(item => {
-            if (category === 'all' || item.classList.contains(category)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
         });
     }
 
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
     }
 
-    // Run on Page Load
-    loadGallery();
+    initGallery();
 </script>
+</body>
+</html>
