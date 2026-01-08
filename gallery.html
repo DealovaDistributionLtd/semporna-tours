@@ -6,25 +6,37 @@
     <title>实拍相册 | Gallery - Semporna Tours</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Restoring the Grid Design */
+        /* Gallery Grid Layout */
         .gallery-grid {
-            max-width: 1200px; margin: auto; padding: 20px;
+            max-width: 1200px; margin: auto; padding: 20px 20px 80px;
             columns: 3 250px; column-gap: 20px;
         }
         .photo-item {
             margin-bottom: 20px; break-inside: avoid; border-radius: var(--radius); 
             overflow: hidden; box-shadow: var(--shadow); background: #fff;
-            cursor: pointer; transition: 0.3s;
+            cursor: pointer; transition: 0.3s; display: block;
         }
         .photo-item:hover { transform: translateY(-5px); }
         .photo-item img { width: 100%; height: auto; display: block; }
         
+        /* Filter Controls */
         .filter-container { text-align:center; padding:30px; }
         .filter-btn {
             background:#fff; border:2px solid var(--main); color:var(--main); padding:8px 22px; 
             border-radius:24px; cursor:pointer; font-weight:700; margin:5px; transition:0.3s;
         }
         .filter-btn.active { background:var(--main); color:#fff; }
+
+        /* Lightbox UI */
+        .lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            display: none; justify-content: center; align-items: center;
+            z-index: 2000; padding: 20px;
+        }
+        .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 8px; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; cursor: pointer; }
+
+        @media(max-width:992px) { .gallery-grid { columns: 2 200px; } }
     </style>
 </head>
 <body>
@@ -60,28 +72,52 @@
     <img id="lightbox-img" src="">
 </div>
 
+<footer style="text-align:center; padding:40px 20px; background: #eee;">
+    <p>© Semporna Tours - Coach Deso_89</p>
+</footer>
+
+<div class="floating-wechat" onclick="openWechat()">
+    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
+</div>
+
+<div id="wechatPopup" class="wechat-popup">
+    <div class="wechat-box">
+        <p class="cn">扫码添加微信咨询预订</p>
+        <p class="en hidden">Scan WeChat to Book</p>
+        <img src="images/wechat-qr.jpg" alt="WeChat QR">
+        <br><strong>Deso_89</strong><br>
+        <button onclick="closeWechat()" style="background:#666; color:#fff; border:none; padding:10px 20px; border-radius:20px; margin-top:10px; cursor:pointer;">关闭 / Close</button>
+    </div>
+</div>
+
 <script src="main.js"></script>
 <script>
-    // 1. Exact mapping of your new folder structure and filenames
     const galleryData = [
-        // DIVING FOLDER
+        // DIVING
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.33.jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (1).jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (2).jpeg', cat: 'diving' },
         { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34.jpeg', cat: 'diving' },
 
-        // ISLANDS FOLDER
+        // ISLANDS
         { src: 'images/islands/WhatsApp Image 2025-11-19 at 07.59.51_41227044.jpg', cat: 'islands' },
         { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55 (1).jpeg', cat: 'islands' },
         { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55.jpeg', cat: 'islands' },
         { src: 'images/islands/dji-20241120095919-0020-d_orig.jpg', cat: 'islands' },
 
-        // STAY & ACCOMMODATION FOLDERS
+        // STAY CATEGORY (images/stay/ folder)
         { src: 'images/stay/20250302-104927_orig.jpg', cat: 'stay' },
         { src: 'images/stay/20250303-093201_orig.jpg', cat: 'stay' },
+        { src: 'images/stay/dji-20250302180040-0113-d_orig.jpg', cat: 'stay' },
+        { src: 'images/stay/dji-20250303073420-0194-d_orig.jpg', cat: 'stay' },
+
+        // STAY CATEGORY (images/accommodation/ folders)
+        { src: 'images/accommodation/Standard room/8a80818a9a983c42019a9b18356d15bb_300702.jpg', cat: 'stay' },
+        { src: 'images/accommodation/Standard room/8a80818a9a983c42019a9b18356d15bb_46071.jpg', cat: 'stay' },
         { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 1.jpg', cat: 'stay' },
         { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 2.jpg', cat: 'stay' },
-        { src: 'images/accommodation/Standard room/8a80818a9a983c42019a9b18356d15bb_300702.jpg', cat: 'stay' }
+        { src: 'images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_449246.jpg', cat: 'stay' },
+        { src: 'images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_144557.jpg', cat: 'stay' }
     ];
 
     const grid = document.getElementById('galleryGrid');
@@ -107,10 +143,12 @@
     function openLightbox(src) {
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = '';
     }
 
     initGallery();
