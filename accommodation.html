@@ -56,49 +56,62 @@
         .room-info h2 { color: var(--main); margin-top: 0; }
         .room-info p { color: #555; line-height: 1.8; margin-bottom: 20px; }
         
-        .amenities {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #777;
+        /* Availability Checker Styles */
+        .check-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #eee;
         }
+        .check-flex {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .date-input {
+            padding: 10px;
+            border: 1px solid var(--main);
+            border-radius: 8px;
+            flex: 1;
+            font-family: inherit;
+        }
+        .status-tag {
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .status-available { background: #e6fffa; color: #234e52; border: 1px solid #38b2ac; }
+        .status-full { background: #fff5f5; color: #9b2c2c; border: 1px solid #feb2b2; }
+
         .amenity-tag {
             background: #f0fbfc;
             color: var(--main);
             padding: 5px 12px;
             border-radius: 20px;
             font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 5px;
         }
 
-        /* Calendar Section Styling */
-        .calendar-section {
-            background: #fff;
-            padding: 40px 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            margin-bottom: 60px;
-        }
         .calendar-wrapper {
             position: relative;
-            padding-bottom: 75%; /* Aspect Ratio */
+            padding-bottom: 75%;
             height: 0;
             overflow: hidden;
-            max-width: 100%;
+            border-radius: var(--radius);
         }
         .calendar-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
         @media (max-width: 768px) {
             .slider-container { height: 250px; }
-            .calendar-section h2 { font-size: 1.4rem; }
+            .check-flex { flex-direction: column; }
         }
     </style>
 </head>
@@ -107,32 +120,19 @@
 <header>
     <nav class="nav-container">
         <a href="index.html" class="logo-box">
-            <img src="images/logo.png" alt="Semporna Tours Logo" class="site-logo">
+            <img src="images/logo.png" alt="Semporna Tours" class="site-logo">
         </a>
         <div class="nav-links">
             <a href="index.html">首页 / Home</a>
             <a href="pricing.html">价格 / Pricing</a>
             <a href="accommodation.html" class="active">住宿 / Accommodation</a>
             <a href="gallery.html">相册 / Gallery</a>
-            <a href="reviews.html">评价 / Reviews</a>
             <a href="about.html">关于 / About</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">联系 / Contact</a>
             <button id="langToggleDesktop" class="lang-btn">🇨🇳 / 🇬🇧</button>
         </div>
         <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
 </header>
-
-<section class="hero">
-    <img src="images/islands/dji-20241120095919-0020-d_orig.jpg" alt="Semporna Resort">
-    <div class="hero-content">
-        <h1 class="cn">水上屋住宿</h1>
-        <h1 class="en hidden">Water Chalet Accommodation</h1>
-        <p class="cn">推窗见海，伴着浪声入眠</p>
-        <p class="en hidden">Wake up to the ocean, sleep with the waves</p>
-    </div>
-</section>
 
 <section>
     <div class="room-card">
@@ -149,14 +149,16 @@
         <div class="room-info">
             <h2 class="cn">标准间 (无海景)</h2>
             <h2 class="en hidden">Standard Room</h2>
-            <div class="amenities">
-                <span class="amenity-tag">Queen Bed</span>
-                <span class="amenity-tag">AC</span>
-                <span class="amenity-tag">Private Bathroom</span>
+            <div class="check-box">
+                <label class="cn">检查此房型可用日期：</label>
+                <label class="en hidden">Check Available Dates:</label>
+                <div class="check-flex">
+                    <input type="date" class="date-input" id="date1">
+                    <button onclick="checkDate('date1', 'res1')" class="btn-about" style="margin:0;">Check</button>
+                </div>
+                <div id="res1" class="status-tag" style="display:none;"></div>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。紧邻宽敞的公共平台，设有日光椅和吊床。</p>
-            <p class="en hidden">Detached private water chalet with 1x Queen bed. AC, private bathroom. Directly attached to a large shared deck area with ocean views.</p>
-            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
+            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
@@ -173,14 +175,14 @@
         <div class="room-info">
             <h2 class="cn">独立海景房</h2>
             <h2 class="en hidden">Detached Ocean View Room</h2>
-            <div class="amenities">
-                <span class="amenity-tag">Queen Bed</span>
-                <span class="amenity-tag">Ocean View Window</span>
-                <span class="amenity-tag">AC</span>
+            <div class="check-box">
+                <div class="check-flex">
+                    <input type="date" class="date-input" id="date2">
+                    <button onclick="checkDate('date2', 'res2')" class="btn-about" style="margin:0;">Check</button>
+                </div>
+                <div id="res2" class="status-tag" style="display:none;"></div>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、海景窗以及独立浴室。注意：此房型无阳台。</p>
-            <p class="en hidden">Detached private water chalet with 1x Queen bed. AC, ocean view window, and private bathroom. Note: NO BALCONY.</p>
-            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
+            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
@@ -189,7 +191,6 @@
             <div class="slider-track">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_449246.jpg">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_534811.jpg">
-                <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_613304.jpg">
             </div>
             <button class="slider-btn btn-prev" onclick="moveSlide('slider3', -1)">&#10094;</button>
             <button class="slider-btn btn-next" onclick="moveSlide('slider3', 1)">&#10095;</button>
@@ -197,14 +198,14 @@
         <div class="room-info">
             <h2 class="cn">豪华海景阳台房 (大床)</h2>
             <h2 class="en hidden">Ocean View Room (Balcony)</h2>
-            <div class="amenities">
-                <span class="amenity-tag">Queen Bed</span>
-                <span class="amenity-tag">Private Balcony</span>
-                <span class="amenity-tag">Stunning View</span>
+            <div class="check-box">
+                <div class="check-flex">
+                    <input type="date" class="date-input" id="date3">
+                    <button onclick="checkDate('date3', 'res3')" class="btn-about" style="margin:0;">Check</button>
+                </div>
+                <div id="res3" class="status-tag" style="display:none;"></div>
             </div>
-            <p class="cn">水上私密大床房，拥有私人海景阳台。阳台可俯瞰 Bohey Dulang 岛和海洋公园。</p>
-            <p class="en hidden">Private overwater room with 1x Queen bed. Private balcony with stunning views of Bohey Dulang Island.</p>
-            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
+            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
@@ -213,7 +214,6 @@
             <div class="slider-track">
                 <img src="images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_144557.jpg">
                 <img src="images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_43838.jpg">
-                <img src="images/accommodation/Ocean View Twin Room/8a80818a9418d64501941b6475e034a0_455578.jpg">
             </div>
             <button class="slider-btn btn-prev" onclick="moveSlide('slider4', -1)">&#10094;</button>
             <button class="slider-btn btn-next" onclick="moveSlide('slider4', 1)">&#10095;</button>
@@ -221,39 +221,26 @@
         <div class="room-info">
             <h2 class="cn">豪华海景阳台房 (双床)</h2>
             <h2 class="en hidden">Ocean View Twin Room</h2>
-            <div class="amenities">
-                <span class="amenity-tag">2x Single Beds</span>
-                <span class="amenity-tag">Private Balcony</span>
-                <span class="amenity-tag">AC</span>
+            <div class="check-box">
+                <div class="check-flex">
+                    <input type="date" class="date-input" id="date4">
+                    <button onclick="checkDate('date4', 'res4')" class="btn-about" style="margin:0;">Check</button>
+                </div>
+                <div id="res4" class="status-tag" style="display:none;"></div>
             </div>
-            <p class="cn">水上私密双床房，适合朋友同行。配有 2 张单人床，空调，海景阳台和独立卫浴。</p>
-            <p class="en hidden">Private overwater room with 2x Single beds. AC, private balcony, and ocean views.</p>
-            <button onclick="openWechat()" class="btn-about" style="background:var(--main); color:#fff; border:none; padding:10px 25px; border-radius:24px; cursor:pointer; font-weight:700;">立即咨询 / Inquire Now</button>
+            <button onclick="openWechat()" class="btn-about" style="width:100%; background:var(--main); color:#fff; border:none;">立即咨询 / Inquire Now</button>
         </div>
     </div>
 
-    <div class="calendar-section">
-        <h2 class="cn">实时房态预查</h2>
-        <h2 class="en hidden">Live Availability Check</h2>
-        <p class="cn" style="color: #666; margin-bottom: 20px;">请查看下方日历了解空房情况（蓝色表示已有预订）</p>
-        <p class="en hidden" style="color: #666; margin-bottom: 20px;">Check the calendar below for availability (Busy slots are booked)</p>
-        
+    <div class="calendar-section" style="text-align:center; padding:40px 0;">
+        <h2 class="cn">全景房态图</h2>
+        <h2 class="en hidden">Overall Availability</h2>
         <div class="calendar-wrapper">
-            <iframe src="https://calendar.google.com/calendar/embed?src=desmondmaker%40gmail.com&ctz=Asia%2FKuala_Lumpur" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?src=desmondmaker%40gmail.com&ctz=Asia%2FKuala_Lumpur" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
         </div>
-        
-        <p class="cn" style="margin-top: 20px; font-size: 0.9rem;">⚠️ <b>注：</b>日历仅供参考，具体请以微信实时确认为准。</p>
-        <p class="en hidden" style="margin-top: 20px; font-size: 0.9rem;">⚠️ <b>Note:</b> For reference only. Please confirm final availability via WeChat.</p>
     </div>
 </section>
 
-<footer style="text-align:center; padding:40px 20px; background: #eee;">
-    <p>© Semporna Tours - Coach Deso_89</p>
-</footer>
-
-<div class="floating-wechat" onclick="openWechat()">
-    <img src="images/wechat-icon.png" alt="WeChat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3670/3670044.png'">
-</div>
 <div id="wechatPopup" class="wechat-popup">
     <div class="wechat-box">
         <p class="cn">扫码添加微信咨询预订</p>
@@ -275,10 +262,36 @@
         sliders[sliderId] += direction;
         if (sliders[sliderId] >= slides.length) sliders[sliderId] = 0;
         if (sliders[sliderId] < 0) sliders[sliderId] = slides.length - 1;
-        const offset = -sliders[sliderId] * 100;
-        track.style.transform = `translateX(${offset}%)`;
+        track.style.transform = `translateX(${-sliders[sliderId] * 100}%)`;
+    }
+
+    // DATE CHECK LOGIC
+    async function checkDate(inputId, resId) {
+        const date = document.getElementById(inputId).value;
+        const resultDiv = document.getElementById(resId);
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbyQIhNgnq1J5sK0SvW9TCGxOUHBMV773l1HN8Wrzzur24SfiqwWHCJsboiD8OfS3tUp/exec";
+
+        if (!date) return alert("Please select a date!");
+
+        resultDiv.style.display = "inline-block";
+        resultDiv.innerHTML = "Checking... 🔄";
+        resultDiv.className = "status-tag";
+
+        try {
+            const response = await fetch(`${scriptUrl}?date=${date}`);
+            const status = await response.text();
+
+            if (status.includes("Full")) {
+                resultDiv.innerHTML = "❌ Busy / Full (已满)";
+                resultDiv.className = "status-tag status-full";
+            } else {
+                resultDiv.innerHTML = "✅ Available (有房)";
+                resultDiv.className = "status-tag status-available";
+            }
+        } catch (e) {
+            resultDiv.innerHTML = "Error checking calendar. Please contact via WeChat.";
+        }
     }
 </script>
-
 </body>
 </html>
