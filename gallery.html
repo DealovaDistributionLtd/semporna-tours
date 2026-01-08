@@ -2,48 +2,62 @@
     </div>
 
 <script>
-    // 1. MAPPING YOUR FOLDERS
-    // We categorize based on your specific GitHub subfolders
-    const categories = [
-        { folder: 'diving', class: 'diving' },
-        { folder: 'islands', class: 'islands' },
-        { folder: 'stay', class: 'rooms' }
+    // 1. EXACT MAPPING OF YOUR GITHUB FILENAMES
+    const galleryData = [
+        // DIVING CATEGORY
+        { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.33.jpeg', cat: 'diving' },
+        { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (1).jpeg', cat: 'diving' },
+        { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34 (2).jpeg', cat: 'diving' },
+        { src: 'images/diving/WhatsApp Image 2026-01-08 at 07.51.34.jpeg', cat: 'diving' },
+
+        // ISLANDS CATEGORY
+        { src: 'images/islands/WhatsApp Image 2025-11-19 at 07.59.51_41227044.jpg', cat: 'islands' },
+        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55 (1).jpeg', cat: 'islands' },
+        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.55.jpeg', cat: 'islands' },
+        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56 (1).jpeg', cat: 'islands' },
+        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56 (2).jpeg', cat: 'islands' },
+        { src: 'images/islands/WhatsApp Image 2025-12-29 at 09.15.56.jpeg', cat: 'islands' },
+        { src: 'images/islands/dji-20241120095919-0020-d_orig.jpg', cat: 'islands' },
+
+        // STAY CATEGORY (The main "Stay" folder)
+        { src: 'images/stay/20250302-104927_orig.jpg', cat: 'rooms' },
+        { src: 'images/stay/20250303-093201_orig.jpg', cat: 'rooms' },
+        { src: 'images/stay/8a80818a9392f1f5019394dd1d65411f_borneo_272191.jpg', cat: 'rooms' },
+        { src: 'images/stay/8a80818a9418d64501941b6475e034a0_144557.jpg', cat: 'rooms' },
+        { src: 'images/stay/dji-20250303073420-0194-d_orig.jpg', cat: 'rooms' },
+        
+        // ACCOMMODATION SUBFOLDERS (Merged into the 'Stay' tab for the gallery)
+        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 1.jpg', cat: 'rooms' },
+        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 2.jpg', cat: 'rooms' },
+        { src: 'images/accommodation/Detached Ocean View Room/Detached Ocean View Room 3.jpg', cat: 'rooms' }
     ];
 
     const grid = document.getElementById('galleryGrid');
 
     function loadGallery() {
-        categories.forEach(cat => {
-            // We assume you have up to 20 images per folder. 
-            // If the image doesn't exist, the 'onerror' function hides it.
-            for (let i = 1; i <= 20; i++) {
-                const item = document.createElement('div');
-                item.className = `photo-item ${cat.class}`;
-                
-                // PATH STRUCTURE: images/[folder]/[number].jpg
-                const imgSrc = `images/${cat.folder}/${i}.jpg`;
-                
-                item.innerHTML = `
-                    <img src="${imgSrc}" 
-                         loading="lazy" 
-                         onerror="handleImageError(this)">
-                `;
-                
-                item.onclick = () => openLightbox(imgSrc);
-                grid.appendChild(item);
-            }
+        galleryData.forEach(item => {
+            const photoDiv = document.createElement('div');
+            photoDiv.className = `photo-item ${item.cat}`;
+            
+            photoDiv.innerHTML = `
+                <img src="${item.src}" 
+                     loading="lazy" 
+                     onerror="this.parentElement.style.display='none'">
+            `;
+            
+            photoDiv.onclick = () => openLightbox(item.src);
+            grid.appendChild(photoDiv);
         });
     }
 
-    // This function hides the placeholder if the image is missing from the folder
-    function handleImageError(img) {
-        img.parentElement.style.display = 'none';
-    }
-
     function filterGallery(category, btn) {
+        // Update Buttons
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        document.querySelectorAll('.photo-item').forEach(item => {
+
+        // Filter Photos
+        const items = document.querySelectorAll('.photo-item');
+        items.forEach(item => {
             if (category === 'all' || item.classList.contains(category)) {
                 item.style.display = 'block';
             } else {
@@ -58,5 +72,11 @@
         document.body.style.overflow = 'hidden';
     }
 
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // Run on Page Load
     loadGallery();
 </script>
