@@ -79,36 +79,65 @@
             border-radius: 4px;
         }
 
-        /* Availability Checker Styling */
+        /* Centered & Enlarged Date Checker Section */
         .check-box {
-            background: #f9f9f9;
-            padding: 20px;
+            background: #fdfdfd;
+            padding: 25px;
             border-radius: var(--radius);
-            margin: 20px 0;
-            border: 1px solid #eee;
+            margin: 25px 0;
+            border: 1px solid #eaeaea;
+            text-align: center;
         }
-        .check-flex { display: flex; gap: 10px; margin-top: 10px; }
+        
+        .check-box label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .check-flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
         .date-input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            flex: 1;
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--main);
+            border-radius: 12px;
+            font-size: 1.1rem;
             font-family: inherit;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
         }
+        
+        .date-input:focus {
+            box-shadow: 0 0 10px rgba(0, 194, 209, 0.2);
+        }
+
         .status-tag {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 20px;
             font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
         }
         .status-available { background: #e6fffa; color: #234e52; border: 1px solid #38b2ac; }
         .status-full { background: #fff5f5; color: #9b2c2c; border: 1px solid #feb2b2; }
 
         @media (max-width: 768px) {
             .slider-container { height: 250px; }
-            .check-flex { flex-direction: column; }
+            .check-flex { width: 100%; }
         }
     </style>
 </head>
@@ -161,21 +190,23 @@
                 <span class="amenity-tag">Air conditioning</span>
                 <span class="amenity-tag">Cold water shower</span>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。提供床上用品和毛巾。注意：此房型无阳台及景观。直接连接到大型公共甲板区域。</p>
-            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, attached private bathroom with western toilet and cold water shower. Note, this room has NO BALCONY and NO VIEW.</p>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、带西式马桶和冷水淋浴的独立浴室。注意：此房型无阳台及景观。紧邻公共平台。</p>
+            <p class="en hidden">Detached private room over the water, 1x QUEEN bed. AC, attached private bathroom. Note: NO BALCONY and NO VIEW.</p>
             
             <div class="important-note cn">⚠️ 预订须知：必须至少提前 1 天预订。请务必在下单前联系教练确认实时房态。</div>
             <div class="important-note en hidden">⚠️ Booking Note: Must be made at least 1 day in advance. Please contact for confirmation first.</div>
 
             <div class="check-box">
-                <label class="cn">检查此日期是否有房：</label>
+                <label class="cn">📅 检查此日期是否有房</label>
+                <label class="en hidden">📅 Check Availability for a Date</label>
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date1">
-                    <button onclick="checkDate('date1', 'res1')" class="card-btn" style="padding:10px 20px;">Check</button>
+                    <button onclick="checkDate('date1', 'res1')" class="card-btn" style="width:100%; max-width:200px;">Check Status</button>
                 </div>
                 <div id="res1" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
+
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 
@@ -197,20 +228,23 @@
                 <span class="amenity-tag">Ocean view window</span>
                 <span class="amenity-tag">Air conditioning</span>
             </div>
-            <p class="cn">独立水上私密客房，配有 1 张大床。空调、海景窗以及带西式马桶和冷水淋浴的独立浴室。注意：此房型无阳台。</p>
-            <p class="en hidden">Detached private room built on stilts over the water, with 1x QUEEN bed. Air conditioning, window with ocean view and attached private bathroom. Note, this room has NO BALCONY.</p>
+            <p class="cn">独立水上私密客房，配有 1 张大床。空调、海景窗以及带西式马桶和冷水淋浴的独立浴室。</p>
+            <p class="en hidden">Detached private room with 1x QUEEN bed. AC, window with ocean view and private bathroom. NO BALCONY.</p>
             
             <div class="important-note cn">⚠️ 预订须知：必须提前 1 天预订。如当前日期无房，请尝试其他日期。</div>
             <div class="important-note en hidden">⚠️ Booking Note: Book at least 1 day in advance. Try later dates for more options.</div>
 
             <div class="check-box">
+                <label class="cn">📅 检查此日期是否有房</label>
+                <label class="en hidden">📅 Check Availability</label>
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date2">
-                    <button onclick="checkDate('date2', 'res2')" class="card-btn" style="padding:10px 20px;">Check</button>
+                    <button onclick="checkDate('date2', 'res2')" class="card-btn" style="width:100%; max-width:200px;">Check Status</button>
                 </div>
                 <div id="res2" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
+
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 
@@ -219,7 +253,6 @@
             <div class="slider-track">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_449246.jpg">
                 <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_534811.jpg">
-                <img src="images/accommodation/Ocean view room/8a80818a9392f1f5019394dd1d654120_613304.jpg">
             </div>
             <button class="slider-btn btn-prev" onclick="moveSlide('slider3', -1)">&#10094;</button>
             <button class="slider-btn btn-next" onclick="moveSlide('slider3', 1)">&#10095;</button>
@@ -229,23 +262,25 @@
             <h2 class="en hidden">Ocean View Room (Balcony)</h2>
             <div class="amenities">
                 <span class="amenity-tag">1x QUEEN bed</span>
-                <span class="amenity-tag">Private Balcony</span>
-                <span class="amenity-tag">Ocean View</span>
+                <span class="amenity-tag">Ocean view balcony</span>
+                <span class="amenity-tag">Fan & AC</span>
             </div>
-            <p class="cn">配有私人海景阳台，可俯瞰 Bohey Dulang 岛。所有房间均配有空调、风扇和独立卫浴。提供床上用品和毛巾。</p>
-            <p class="en hidden">Private room with 1x QUEEN bed. All rooms have air conditioning, fan, ocean view balcony and attached private bathroom.</p>
+            <p class="cn">配有私人海景阳台，可俯瞰 Bohey Dulang 岛。空调、风扇和独立卫浴完备。</p>
+            <p class="en hidden">Private room with 1x QUEEN bed. AC, fan, ocean view balcony and attached private bathroom.</p>
 
             <div class="important-note cn">⚠️ 重要提示：请务必先联系确认房态再安排行程。</div>
             <div class="important-note en hidden">⚠️ Important: Always contact for availability confirmation first.</div>
 
             <div class="check-box">
+                <label class="cn">📅 检查此日期是否有房</label>
                 <div class="check-flex">
                     <input type="date" class="date-input" id="date3">
-                    <button onclick="checkDate('date3', 'res3')" class="card-btn" style="padding:10px 20px;">Check</button>
+                    <button onclick="checkDate('date3', 'res3')" class="card-btn" style="width:100%; max-width:200px;">Check Status</button>
                 </div>
                 <div id="res3" class="status-tag" style="display:none;"></div>
             </div>
-            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none;">立即咨询预订 / Inquire Now</button>
+
+            <button onclick="openWechat()" class="card-btn" style="width:100%; border:none; font-weight:700;">立即咨询预订 / Inquire Now</button>
         </div>
     </div>
 </section>
