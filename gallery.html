@@ -22,7 +22,6 @@
             overflow: hidden; box-shadow: var(--shadow); background: #fff; transition: 0.3s;
             cursor: pointer; display: block;
         }
-        .photo-item:hover { transform: scale(1.02); }
         .photo-item img { width: 100%; height: auto; display: block; }
 
         .lightbox {
@@ -68,60 +67,58 @@
     <button class="filter-btn" onclick="filterGallery('islands', this)">
         <span class="cn">跳岛游</span><span class="en hidden">Islands</span>
     </button>
-    <button class="filter-btn" onclick="filterGallery('rooms', this)">
+    <button class="filter-btn" onclick="filterGallery('stay', this)">
         <span class="cn">住宿</span><span class="en hidden">Stay</span>
     </button>
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
-    
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving1.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving2.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving3.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/diving4.jpg"></div>
-    <div class="photo-item diving" onclick="openLightbox(this)"><img src="images/diving/IMG-20251209-WA0019.jpg"></div>
-
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9392f1f5019394dd1d654120_449246.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9392f1f5019394dd1d654120_534811.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a9418d64501941b6475e034a0_144557.jpg"></div>
-    <div class="photo-item rooms" onclick="openLightbox(this)"><img src="images/stay/8a80818a97ad823d0197aec033d73f77_153709.jpg"></div>
-
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/semporna1.jpg"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/semporna2.jpg"></div>
-    <div class="photo-item islands" onclick="openLightbox(this)"><img src="images/islands/dji-20250303073420-0194-d_orig.jpg"></div>
-
-</div>
+    </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" src="">
 </div>
 
-<footer style="text-align:center; padding:40px 20px; background: #eee;">
-    <p>© Semporna Tours - Coach Deso_89</p>
-</footer>
-
 <script src="main.js"></script>
 <script>
-    function filterGallery(category, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    // Configuration: Define how many images are in each folder
+    const galleryConfig = {
+        diving: 15, // Change this to the number of photos you have in images/diving
+        islands: 15, // Change this to the number of photos you have in images/islands
+        stay: 20    // Change this to the number of photos you have in images/stay
+    };
 
-        const items = document.querySelectorAll('.photo-item');
-        items.forEach(item => {
-            if (category === 'all' || item.classList.contains(category)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
+    const grid = document.getElementById('galleryGrid');
+
+    function loadImages() {
+        Object.keys(galleryConfig).forEach(category => {
+            const count = galleryConfig[category];
+            for (let i = 1; i <= count; i++) {
+                const item = document.createElement('div');
+                item.className = `photo-item ${category}`;
+                
+                // It looks for images/diving/1.jpg, images/diving/2.jpg, etc.
+                const imgSrc = `images/${category}/${i}.jpg`;
+                
+                item.innerHTML = `<img src="${imgSrc}" loading="lazy" onerror="this.parentElement.style.display='none'">`;
+                item.onclick = () => openLightbox(imgSrc);
+                grid.appendChild(item);
             }
         });
     }
 
-    function openLightbox(el) {
-        const lightbox = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        img.src = el.querySelector('img').src;
-        lightbox.style.display = 'flex';
+    function filterGallery(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+        });
+    }
+
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 
@@ -129,6 +126,9 @@
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = '';
     }
+
+    // Initialize
+    loadImages();
 </script>
 </body>
 </html>
